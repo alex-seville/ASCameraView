@@ -48,3 +48,8 @@ Some neat third-party features include:
 - [ ] using both cameras simultaenously
 
 - [ ] adding custom overlays to the image (i.e. seene)
+
+
+Taking inspiration from:
+https://github.com/danielebogo/DBCamera (custom camera)
+https://github.com/AFNetworking/AFNetworking (popular, reliable library)

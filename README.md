@@ -1,4 +1,4 @@
-cameraLib
+cameraLib (real name TBD)
 =========
 
 A camera lib for iOS

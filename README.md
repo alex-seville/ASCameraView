@@ -56,3 +56,4 @@ Taking inspiration from:
 - https://github.com/danielebogo/DBCamera (custom camera)
 - https://github.com/AFNetworking/AFNetworking (popular, reliable library)
 - http://guides.cocoapods.org/making/making-a-cocoapod.html (creating a cocoapod)
+- http://blog.sigmapoint.pl/developing-static-library-for-ios-with-cocoapods/

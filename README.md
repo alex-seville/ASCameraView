@@ -51,5 +51,5 @@ Some neat third-party features include:
 
 
 Taking inspiration from:
-https://github.com/danielebogo/DBCamera (custom camera)
-https://github.com/AFNetworking/AFNetworking (popular, reliable library)
+- https://github.com/danielebogo/DBCamera (custom camera)
+- https://github.com/AFNetworking/AFNetworking (popular, reliable library)

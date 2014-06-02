@@ -12,12 +12,37 @@
 
 @implementation cameraLib
 
+@synthesize session;
+
+#pragma mark Singleton Methods
+
++ (id)sharedManager {
+    static AVCaptureSession *sharedMyManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedMyManager = [[self alloc] init];
+    });
+    return sharedMyManager;
+}
+
+- (id)init {
+	if (self = [super init]) {
+		session = [[AVCaptureSession alloc] init];
+	}
+	return self;
+}
+
+- (void)dealloc {
+	// Should never be called, but just here for clarity really.
+}
+
+
+
+
 // Demo function just for proof of concept and to show
 // that this lib is consumable
 - (void) showCameraWithPreviewView:(UIView *) previewView {
-	AVCaptureSession *session = [[AVCaptureSession alloc] init];
-	
-	
+		
 	//add video device
 	AVCaptureDevice *VideoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
 	if (VideoDevice)

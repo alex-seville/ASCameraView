@@ -8,9 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface cameraLib : NSObject
+@interface cameraLib : NSObject {
+    AVCaptureSession *session;
+}
 
+@property (nonatomic, strong) AVCaptureSession *session;
+
++ (id)sharedManager;
+
+
+//for demonstration purposes
 - (void) showCameraWithPreviewView:(UIView *) previewView;
+
+
 
 @end

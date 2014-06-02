@@ -12,14 +12,48 @@
 
 @implementation cameraLib
 
-
+// Demo function just for proof of concept and to show
+// that this lib is consumable
 - (void) showCameraWithPreviewView:(UIView *) previewView {
 	AVCaptureSession *session = [[AVCaptureSession alloc] init];
 	
-	AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:session];
 	
-	previewLayer.frame = previewView.bounds; // Assume you want the preview layer to fill the view.
-	[previewView.layer addSublayer:previewLayer];
+	//add video device
+	AVCaptureDevice *VideoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+	if (VideoDevice)
+	{
+		NSError *error;
+		AVCaptureDeviceInput *VideoInputDevice = [AVCaptureDeviceInput deviceInputWithDevice:VideoDevice error:&error];
+		if (!error)
+		{
+			if ([session canAddInput:VideoInputDevice])
+				[session addInput:VideoInputDevice];
+			else
+				NSLog(@"Couldn't add video input");
+		}
+		else
+		{
+			NSLog(@"Couldn't create video input");
+		}
+	}
+	else
+	{
+		NSLog(@"Couldn't create video capture device");
+	}
+	
+	//preview layer
+	NSLog(@"Adding video preview layer");
+	AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:session];
+	NSLog(@"Display the preview layer");
+	CGRect layerRect = [[previewView layer] bounds];
+	[previewLayer setBounds:layerRect];
+	[previewLayer setPosition:CGPointMake(CGRectGetMidX(layerRect),
+										  CGRectGetMidY(layerRect))];
+    [previewView.layer addSublayer:previewLayer];
+	
+	//start capture
+	NSLog(@"Starting capture");
+	[session startRunning];
 }
 
 @end

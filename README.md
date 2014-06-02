@@ -45,7 +45,7 @@ Some neat third-party features include:
 
 - [ ] Holding down to record videos vine-style (stop motion/starting and stopping)
 
-- [ ] using both cameras simultaenously
+- [x] ~~using both cameras simultaenously~~ (not possible according to Apple)
 
 - [ ] adding custom overlays to the image (i.e. seene)
 

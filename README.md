@@ -1,6 +1,12 @@
 cameraLib (real name TBD)
 =========
 
+##Structure
+
+The current plan is to have the library act like UIImagePickerController, except with a more advanced featureset.
+
+##Features
+
 A camera lib for iOS
 
 Some features to implement (not a prioritized list, just brainstorming):

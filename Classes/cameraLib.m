@@ -10,6 +10,13 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
+@interface cameraLib()
+
+@property (nonatomic, strong) AVCaptureDevice *device;
+
+
+@end
+
 @implementation cameraLib
 
 @synthesize session;
@@ -36,19 +43,14 @@
 	// Should never be called, but just here for clarity really.
 }
 
+#pragma mark - public methods
 
-
-
-// Demo function just for proof of concept and to show
-// that this lib is consumable
-- (void) showCameraWithPreviewView:(UIView *) previewView {
-		
-	//add video device
-	AVCaptureDevice *VideoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-	if (VideoDevice)
+- (void) setupVideoCapture {
+	_device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+	if (_device)
 	{
 		NSError *error;
-		AVCaptureDeviceInput *VideoInputDevice = [AVCaptureDeviceInput deviceInputWithDevice:VideoDevice error:&error];
+		AVCaptureDeviceInput *VideoInputDevice = [AVCaptureDeviceInput deviceInputWithDevice:_device error:&error];
 		if (!error)
 		{
 			if ([session canAddInput:VideoInputDevice])
@@ -65,6 +67,15 @@
 	{
 		NSLog(@"Couldn't create video capture device");
 	}
+}
+
+
+
+// Demo function just for proof of concept and to show
+// that this lib is consumable
+- (void) showCameraWithPreviewView:(UIView *) previewView {
+		
+	[self setupVideoCapture];
 	
 	//preview layer
 	NSLog(@"Adding video preview layer");

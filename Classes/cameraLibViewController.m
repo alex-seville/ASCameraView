@@ -13,32 +13,36 @@
 
 @interface cameraLibViewController ()
 @property (nonatomic, strong) cameraLib *cameraLibrary;
+@property (unsafe_unretained, nonatomic) IBOutlet UIView *liveDisplayView;
 
 @end
 
 @implementation cameraLibViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	NSString *nibName = @"cameraLibViewController";
+    NSBundle *bundle = nil;
+    self = [super initWithNibName:nibName bundle:bundle];
     if (self) {
         // Custom initialization
     }
     return self;
 }
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    // Disregard parameters - nib name is an implementation detail
+	return [self init];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-	self.view.backgroundColor = [UIColor grayColor];
-	
-}
-
-- (void)viewDidAppear{
 	self.cameraLibrary = [[cameraLib alloc] init];
-	//[self.cameraLibrary showCameraWithPreviewView:self.liveDisplayView];
 	NSLog(@"Set up view controller");
+	[self.cameraLibrary showCameraWithPreviewView:self.liveDisplayView];
 }
 
 - (void)didReceiveMemoryWarning

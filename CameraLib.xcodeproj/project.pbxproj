@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		655D25C6193A6A310018BC1D /* cameraLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 655D25C5193A6A310018BC1D /* cameraLib.m */; };
+		65788D461944C3B200E72C97 /* cameraLib.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 65788D451944C3B200E72C97 /* cameraLib.podspec */; };
 		65B72FE219424F6C00136956 /* cameraLibViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B72FE019424F6C00136956 /* cameraLibViewController.m */; };
 		65FDDBC11939203A00B942F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FDDBC01939203A00B942F3 /* Foundation.framework */; };
 		65FDDBCF1939203A00B942F3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FDDBCE1939203A00B942F3 /* XCTest.framework */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		655D25C4193A6A310018BC1D /* cameraLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cameraLib.h; path = Classes/cameraLib.h; sourceTree = "<group>"; };
 		655D25C5193A6A310018BC1D /* cameraLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cameraLib.m; path = Classes/cameraLib.m; sourceTree = "<group>"; };
+		65788D451944C3B200E72C97 /* cameraLib.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cameraLib.podspec; sourceTree = "<group>"; };
 		65B72FDF19424F6C00136956 /* cameraLibViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cameraLibViewController.h; path = Classes/cameraLibViewController.h; sourceTree = "<group>"; };
 		65B72FE019424F6C00136956 /* cameraLibViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cameraLibViewController.m; path = Classes/cameraLibViewController.m; sourceTree = "<group>"; };
 		65B72FE119424F6C00136956 /* cameraLibViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = cameraLibViewController.xib; path = Classes/cameraLibViewController.xib; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		65FDDBB41939203A00B942F3 = {
 			isa = PBXGroup;
 			children = (
+				65788D451944C3B200E72C97 /* cameraLib.podspec */,
 				655D25C9193A6B380018BC1D /* Example */,
 				655D25C8193A6A3D0018BC1D /* Classes */,
 				65FDDBBF1939203A00B942F3 /* Frameworks */,
@@ -132,6 +135,7 @@
 				65FDDBB91939203A00B942F3 /* Sources */,
 				65FDDBBA1939203A00B942F3 /* Frameworks */,
 				65FDDBBB1939203A00B942F3 /* CopyFiles */,
+				65788D431944C32D00E72C97 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -188,6 +192,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		65788D431944C32D00E72C97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65788D461944C3B200E72C97 /* cameraLib.podspec in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65FDDBCB1939203A00B942F3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;

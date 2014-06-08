@@ -11,21 +11,61 @@ A camera lib for iOS
 
 Some features to implement (not a prioritized list, just brainstorming):
 
-- [ ] flash - on off auto toggle and functionality
+- flash
+
+ - [ ] allow toggling of modes
  
-- [ ] HDR on/off toggle (and maybe specifying the bracketing?)
+ - [ ] allow customization of UI via delegate
+ 
+- HDR
 
-- [ ] front/back camera toggle
+ - [ ] allow toggling of HDR
+ 
+ - [ ] allow customization of bracketing (maybe only available in ios8)
+ 
+ - [ ] allow customization of UI via delegate
 
-- [ ] focus rectangle (color, functionality)
+- Device switching
 
-- [ ] pinch digital zoom
+ - [ ] toggling between front and back camera
+ 
+ - [ ] customization of UI via delegate
+
+- focus rectangle
+
+ - [x] show focus rectangle on autofocus changes (iOS 6 or less style)
+ 
+ - [ ] show focus rectangle on autofocus changes (iOS 7+ style)
+ 
+ - [ ] show smaller focus rectangle when tapped focus change is made
+ 
+ - [ ] customize focus color
+ 
+ - [x] allow custom focus icon
+ 
+ - [ ] expose focus overlay display to a delegate
+
+- digital zoom
+
+ - [ ] pinch to zoom in or out digitally
+ 
+ - [ ] customize colors
+ 
+ - [ ] customization of ui via delegate
 
 - [ ] default crops (photo, square)
 
 - [ ] mode toggle (video, photo, square, pano)
 
-- [x] camera roll preview thumbnail
+- camera roll thumbnail
+
+ - [x] camera roll preview thumbnail
+
+ - [ ] customize album for preview/saving
+
+ - [ ] camera roll browser (after clicking on thumbnail
+
+- [ ] basic effects
 
 - [ ] live effect preview
 
@@ -41,7 +81,7 @@ Some features to implement (not a prioritized list, just brainstorming):
 
  - [ ]  allow long shutter photo taking
 
-- [ ] customize buttons
+- [ ] customize shutter button
 
 - [x] customize background color
 

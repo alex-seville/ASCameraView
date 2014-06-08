@@ -20,7 +20,7 @@
 
 
 //for demonstration purposes
-- (void) showCameraWithPreviewView:(UIView *) previewView;
+- (void) showCameraWithPreviewView:(UIView *) previewView showFocusOverlay:(BOOL)showFocusOverlay focusOverlayImage:(UIImage *)focusOverlayImage;
 
 
 

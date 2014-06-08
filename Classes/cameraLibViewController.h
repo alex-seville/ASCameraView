@@ -11,6 +11,15 @@
 
 @interface cameraLibViewController : UIViewController
 
+//Main view properties
 @property (nonatomic, strong) UIColor *backgroundColor;
+
+//Thumbnails
+@property (nonatomic, assign) BOOL disableThumbnail;
+
+//Focusing
+@property (nonatomic, assign) BOOL disableFocusOverlay;
+@property (nonatomic, strong) UIImage *focusOverlayImage;
+
 
 @end

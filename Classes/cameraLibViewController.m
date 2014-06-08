@@ -17,6 +17,7 @@
 @property (unsafe_unretained, nonatomic) IBOutlet UIView *liveDisplayView;
 @property (unsafe_unretained, nonatomic) IBOutlet UIImageView *mostRecentThumnailView;
 - (IBAction)tapMostRecentThumnail:(UITapGestureRecognizer *)sender;
+@property (nonatomic, strong) UIImage *focusOverlayUIImage;
 
 @end
 
@@ -47,16 +48,25 @@
 	[[UIApplication sharedApplication] setStatusBarHidden:YES];
     // Do any additional setup after loading the view from its nib.
 	
-	//load the thumbnail
-	assetLib *assets = [[assetLib alloc] init];
-	[assets getLatestImageWithSuccess:^(UIImage *image) {
-		self.mostRecentThumnailView.image = image;
-	}];
+	if (!self.disableThumbnail){
+		//load the thumbnail
+		assetLib *assets = [[assetLib alloc] init];
+		[assets getLatestImageWithSuccess:^(UIImage *image) {
+			self.mostRecentThumnailView.image = image;
+		}];
+	} else {
+		[self.mostRecentThumnailView removeFromSuperview];
+	}
 	
 	//load the camera
 	self.cameraLibrary = [[cameraLib alloc] init];
 	NSLog(@"Set up view controller");
-	[self.cameraLibrary showCameraWithPreviewView:self.liveDisplayView];
+	
+	if (!self.disableFocusOverlay && !self.focusOverlayImage){
+		self.focusOverlayUIImage = [UIImage imageNamed:@"focus.png"];
+	}
+	
+	[self.cameraLibrary showCameraWithPreviewView:self.liveDisplayView showFocusOverlay:!self.disableFocusOverlay focusOverlayImage:self.focusOverlayUIImage];
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,8 +102,12 @@
 
 #pragma mark - user customizations
 
-- (void)setBackgroundColor:(UIColor *)backgroundColor {
+- (void) setBackgroundColor:(UIColor *)backgroundColor {
 	self.view.backgroundColor = backgroundColor;
+}
+
+- (void) setFocusOverlayImage:(UIImage *)focusOverlayImage {
+	self.focusOverlayUIImage = focusOverlayImage;
 }
 
 

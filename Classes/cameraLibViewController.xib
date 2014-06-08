@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="cameraLibViewController">
             <connections>
                 <outlet property="liveDisplayView" destination="BFO-GB-Ntb" id="RIA-2T-RaY"/>
+                <outlet property="mostRecentThumnailView" destination="wDY-ql-o5C" id="gps-2V-bsO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,14 +17,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BFO-GB-Ntb">
-                    <rect key="frame" x="0.0" y="36" width="320" height="450"/>
+                    <rect key="frame" x="0.0" y="41" width="320" height="425"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wDY-ql-o5C">
+                    <rect key="frame" x="9" y="510" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="mqG-49-RpI" appends="YES" id="txa-3A-83B"/>
+                    </connections>
+                </imageView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
+        <tapGestureRecognizer id="mqG-49-RpI">
+            <connections>
+                <action selector="tapMostRecentThumnail:" destination="-1" id="BgK-XZ-HSG"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

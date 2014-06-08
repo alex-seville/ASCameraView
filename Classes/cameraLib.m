@@ -77,19 +77,23 @@
 		
 	[self setupVideoCapture];
 	
+	
 	//preview layer
 	NSLog(@"Adding video preview layer");
 	AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:session];
 	NSLog(@"Display the preview layer");
 	CGRect layerRect = [[previewView layer] bounds];
-	[previewLayer setBounds:layerRect];
-	[previewLayer setPosition:CGPointMake(CGRectGetMidX(layerRect),
-										  CGRectGetMidY(layerRect))];
-    [previewView.layer addSublayer:previewLayer];
+	NSLog(@"bounds: %f %f %f %f", layerRect.size.width, layerRect.size.height, layerRect.origin.x, layerRect.origin.y);
+	
+	previewLayer.frame = previewView.bounds;
+	
+	previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+	[previewView.layer addSublayer:previewLayer];
 	
 	//start capture
 	NSLog(@"Starting capture");
 	[session startRunning];
+	
 }
 
 @end

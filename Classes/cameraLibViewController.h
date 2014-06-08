@@ -11,4 +11,6 @@
 
 @interface cameraLibViewController : UIViewController
 
+@property (nonatomic, strong) UIColor *backgroundColor;
+
 @end

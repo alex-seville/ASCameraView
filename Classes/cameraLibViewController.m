@@ -88,4 +88,13 @@
 	}
 	
 }
+
+
+#pragma mark - user customizations
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+	self.view.backgroundColor = backgroundColor;
+}
+
+
 @end

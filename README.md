@@ -25,7 +25,7 @@ Some features to implement (not a prioritized list, just brainstorming):
 
 - [ ] mode toggle (video, photo, square, pano)
 
-- [ ] camera roll preview thumbnail
+- [x] camera roll preview thumbnail
 
 - [ ] live effect preview
 
@@ -43,7 +43,7 @@ Some features to implement (not a prioritized list, just brainstorming):
 
 - [ ] customize buttons
 
-- [ ] customize background color
+- [x] customize background color
 
 
 

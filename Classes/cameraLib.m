@@ -178,9 +178,24 @@ bool focusOnPoint = false;
 	
 	if (self.consumerView != nil){
 		if (focusOnPoint){
-			self.focusingOverlay.center = [self.consumerView convertPoint:focusPoint fromView:self.consumerView.superview];
-			self.focusingOverlay.frame = CGRectMake(self.focusingOverlay.frame.origin.x, self.focusingOverlay.frame.origin.y, self.focusingOverlay.frame.size.width/2, self.focusingOverlay.frame.size.height/2);
-			focusOnPoint = false;
+			//center the overlay on the point that was tapped
+			self.focusingOverlay.center = focusPoint;
+			
+			//now we decrease the width by half, and the height by half,
+			//but also the x, and y so that things are still centered
+			
+			double halfWidth = self.focusingOverlay.frame.size.width/2;
+			double halfHeight = self.focusingOverlay.frame.size.height/2;
+			self.focusingOverlay.frame = CGRectMake(self.focusingOverlay.frame.origin.x+(halfWidth/2), self.focusingOverlay.frame.origin.y+(halfHeight/2), halfWidth ,halfHeight);
+			
+			
+			//the device tends to focus twice, so we set a timer
+			[NSTimer scheduledTimerWithTimeInterval:2.0
+											 target:self
+										   selector:@selector(endFocusOnPoint)
+										   userInfo:nil
+											repeats:NO];
+			
 		}else{
 			NSLog(@"getting center of consumer view");
 			self.focusingOverlay.center = [self.consumerView convertPoint:self.consumerView.center fromView:self.consumerView.superview];
@@ -206,6 +221,10 @@ bool focusOnPoint = false;
 		}];
 		
 	}
+}
+
+- (void) endFocusOnPoint {
+	focusOnPoint = false;
 }
 
 - (void) focusOnPoint:(CGPoint)autoFocusPoint {

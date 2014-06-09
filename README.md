@@ -37,6 +37,8 @@ Some features to implement (not a prioritized list, just brainstorming):
  
  - [ ] show focus rectangle on autofocus changes (iOS 7+ style)
  
+ - [x] tap to focus
+ 
  - [ ] show smaller focus rectangle when tapped focus change is made
  
  - [ ] customize focus color

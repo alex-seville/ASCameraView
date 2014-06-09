@@ -18,6 +18,7 @@
 @property (unsafe_unretained, nonatomic) IBOutlet UIImageView *mostRecentThumnailView;
 - (IBAction)tapMostRecentThumnail:(UITapGestureRecognizer *)sender;
 @property (nonatomic, strong) UIImage *focusOverlayUIImage;
+- (IBAction)tapPreviewView:(UITapGestureRecognizer *)sender;
 
 @end
 
@@ -111,4 +112,10 @@
 }
 
 
+- (IBAction)tapPreviewView:(UITapGestureRecognizer *)sender {
+	CGPoint point = [sender locationInView:self.liveDisplayView];
+
+	[self.cameraLibrary focusOnPoint:point];
+		
+}
 @end

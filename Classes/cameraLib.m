@@ -12,12 +12,18 @@
 
 @interface cameraLib()
 
+/* AVCapture objects */
 @property (nonatomic, strong) AVCaptureDevice *device;
-@property (nonatomic, strong) UIImageView *focusingOverlay;
+
+/* Configurations objects */
+
+//the view used to display the camera feed
 @property (nonatomic, strong) UIView *consumerView;
-
-
+//our focusing overlay UIImageView.  This is displayed when the camera changes focuse.
+@property (nonatomic, strong) UIImageView *focusingOverlay;
+//you can hide the focus overlay if you want
 @property (nonatomic, assign) BOOL isFocusOverlayShown;
+//you can customize the overlay image asset
 @property (nonatomic, strong) UIImage *focusOverlayImage;
 
 
@@ -27,8 +33,15 @@
 
 @synthesize session;
 
+#pragma mark - Local Variables
+
+//used for focus state
 bool focusing = false;
 bool finishedFocus = false;
+CGPoint focusPoint;
+bool focusOnPoint = false;
+
+
 
 #pragma mark Singleton Methods
 
@@ -52,7 +65,49 @@ bool finishedFocus = false;
 	// Should never be called, but just here for clarity really.
 }
 
-#pragma mark - public methods
+
+#pragma mark - Public Methods
+
+// show a default camera view controller without focusing overlay
+- (void) showCameraWithPreviewView:(UIView *) previewView {
+	[self showCameraWithPreviewView:previewView showFocusOverlay:false focusOverlayImage:nil];
+}
+
+
+// show a camera view controller with parameters to control which options are enabled
+- (void) showCameraWithPreviewView:(UIView *) previewView showFocusOverlay:(BOOL)showFocusOverlay focusOverlayImage:(UIImage *)focusOverlayImage {
+	
+	//we can't show an overlay if an oevrlay image isn't provided
+	//this may change when I figure out how to do the iOS7 focusing animation
+	self.isFocusOverlayShown = focusOverlayImage != nil && showFocusOverlay;
+	self.focusOverlayImage = focusOverlayImage;
+		
+	//this is the actual view that will show the camera feed
+	//in most cases it will be the cameraLibViewController's preview view
+	//but it could be any view
+	self.consumerView = previewView;
+	
+	//set up the media capture
+	//TODO: this could be refactored to be more logical
+	//and to have better error handling
+	[self setupVideoCapture];
+	
+	
+	//Create the preview layer and attach it to the consumer view
+	AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:session];
+	
+	//set the size to match the consumer view
+	previewLayer.frame = self.consumerView.bounds;
+	
+	previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+	[self.consumerView.layer addSublayer:previewLayer];
+	
+	//start capture
+	[session startRunning];
+	
+}
+
+#pragma mark - private methods
 
 - (void) setupVideoCapture {
 	_device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -65,9 +120,9 @@ bool finishedFocus = false;
 			if ([session canAddInput:VideoInputDevice])
 			{
 				[session addInput:VideoInputDevice];
+				
 				if (self.isFocusOverlayShown){
-					//capture focusing
-					NSLog(@"set up focus observing");
+					//capture focusing by observing changes to the device focusing
 					[_device addObserver:self forKeyPath:@"adjustingFocus" options:NSKeyValueObservingOptionNew context:nil];
 				}
 			}
@@ -84,46 +139,13 @@ bool finishedFocus = false;
 	{
 		NSLog(@"Couldn't create video capture device");
 	}
-	
-	
 }
 
 
-
-// Demo function just for proof of concept and to show
-// that this lib is consumable
-- (void) showCameraWithPreviewView:(UIView *) previewView showFocusOverlay:(BOOL)showFocusOverlay focusOverlayImage:(UIImage *)focusOverlayImage {
-	
-	self.isFocusOverlayShown = showFocusOverlay;
-	self.focusOverlayImage = focusOverlayImage;
-		
-	self.consumerView = previewView;
-	[self setupVideoCapture];
-	
-	
-	//preview layer
-	NSLog(@"Adding video preview layer");
-	AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:session];
-	NSLog(@"Display the preview layer");
-	CGRect layerRect = [[self.consumerView layer] bounds];
-	NSLog(@"bounds: %f %f %f %f", layerRect.size.width, layerRect.size.height, layerRect.origin.x, layerRect.origin.y);
-	
-	previewLayer.frame = self.consumerView.bounds;
-	
-	previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-	[self.consumerView.layer addSublayer:previewLayer];
-	
-	//start capture
-	NSLog(@"Starting capture");
-	[session startRunning];
-	
-}
-
-
+// Handler for observations
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-	NSLog(@"in observer");
-    if( [keyPath isEqualToString:@"adjustingFocus"] ){
+	if( [keyPath isEqualToString:@"adjustingFocus"] ){
         [self isFocusing:change];
     }
 }
@@ -149,15 +171,21 @@ bool finishedFocus = false;
 
 - (void) showFocusOverlay {
 	//When the camera is autofocusing, the square is just shown in the middle
-	if (self.focusingOverlay == nil){
-		NSLog(@"creating focusing overlay");
-		self.focusingOverlay = [[UIImageView alloc] initWithImage:self.focusOverlayImage];
-		NSLog(@"image loaded? %f", self.focusingOverlay.image.size.width);
-	}
+	//we always reset this object, in case we're modified the frame
+	NSLog(@"creating focusing overlay");
+	self.focusingOverlay = [[UIImageView alloc] initWithImage:self.focusOverlayImage];
+	NSLog(@"image loaded? %f", self.focusingOverlay.image.size.width);
+	
 	if (self.consumerView != nil){
-		NSLog(@"getting center of consumer view");
-		self.focusingOverlay.center = [self.consumerView convertPoint:self.consumerView.center fromView:self.consumerView.superview];
-		NSLog(@"adding focusing overlay to parent view");
+		if (focusOnPoint){
+			self.focusingOverlay.center = [self.consumerView convertPoint:focusPoint fromView:self.consumerView.superview];
+			self.focusingOverlay.frame = CGRectMake(self.focusingOverlay.frame.origin.x, self.focusingOverlay.frame.origin.y, self.focusingOverlay.frame.size.width/2, self.focusingOverlay.frame.size.height/2);
+			focusOnPoint = false;
+		}else{
+			NSLog(@"getting center of consumer view");
+			self.focusingOverlay.center = [self.consumerView convertPoint:self.consumerView.center fromView:self.consumerView.superview];
+			NSLog(@"adding focusing overlay to parent view");
+		}
 		self.focusingOverlay.alpha = 0.0f;
 		[self.consumerView addSubview:self.focusingOverlay];
 		
@@ -178,6 +206,22 @@ bool finishedFocus = false;
 		}];
 		
 	}
+}
+
+- (void) focusOnPoint:(CGPoint)autoFocusPoint {
+	NSLog(@"got tap on preview");
+	if ([_device isFocusModeSupported:AVCaptureFocusModeContinuousAutoFocus] &&
+		[_device isFocusPointOfInterestSupported] ) {
+		NSLog(@"locking to make changes to focus point %f %f", autoFocusPoint.x, autoFocusPoint.y);
+		[_device lockForConfiguration:nil];
+		[_device setFocusPointOfInterest:autoFocusPoint];
+		focusPoint = autoFocusPoint;
+		focusOnPoint = true;
+		NSLog(@"changed focus, resetting mode");
+		[_device setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
+		[_device unlockForConfiguration];
+	}
+
 }
 
 @end

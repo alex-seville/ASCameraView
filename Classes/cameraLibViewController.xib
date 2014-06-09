@@ -20,6 +20,10 @@
                     <rect key="frame" x="0.0" y="41" width="320" height="425"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="Nl1-gF-zYP" appends="YES" id="Vdy-KY-rFa"/>
+                    </connections>
                 </view>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wDY-ql-o5C">
                     <rect key="frame" x="9" y="510" width="48" height="48"/>
@@ -37,6 +41,11 @@
         <tapGestureRecognizer id="mqG-49-RpI">
             <connections>
                 <action selector="tapMostRecentThumnail:" destination="-1" id="BgK-XZ-HSG"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="Nl1-gF-zYP">
+            <connections>
+                <action selector="tapPreviewView:" destination="-1" id="zyu-hO-fGw"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

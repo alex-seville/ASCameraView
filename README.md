@@ -107,6 +107,13 @@ Some neat third-party features include:
 
 - [ ] adding custom overlays to the image (i.e. seene)
 
+- [ ] timers
+
+- [ ] multiple exposures
+
+- [ ] multi-shots
+
+- [ ] face detect timer
 
 ----------
 

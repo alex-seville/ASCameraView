@@ -1,6 +1,16 @@
 cameraLib (real name TBD)
 =========
 
+##Try it out
+
+1. Clone this repo
+2. Create an empty xcode project in a different directory
+3. Add a Podfile to your new project with `pod "cameraLib", :path => "../cameraLib/"` (where '../' is the appropriate path to the cloned repo)
+4. Run `pod install`
+5. Open your test workspace and add `#import <cameraLibViewController.h>` to the top of a file
+6. In a viewLoad or action, add `cameraLibViewController *picker = [[cameraLibViewController alloc] init];` to init the library viewcontroller
+7. Add `[self presentViewController:picker animated:YES completion:nil];` to present the view controller
+
 ##Structure
 
 The current plan is to have the library act like UIImagePickerController, except with a more advanced featureset.

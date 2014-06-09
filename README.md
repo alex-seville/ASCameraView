@@ -49,7 +49,7 @@ Some features to implement (not a prioritized list, just brainstorming):
  
  - [x] tap to focus
  
- - [ ] show smaller focus rectangle when tapped focus change is made
+ - [x] show smaller focus rectangle when tapped focus change is made
  
  - [ ] customize focus color
  

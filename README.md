@@ -20,6 +20,15 @@ The current plan is to have the library act like UIImagePickerController, except
 A camera lib for iOS
 
 Some features to implement (not a prioritized list, just brainstorming):
+- capture
+
+- [x] take photo
+
+- [x] update thumbnail after photo taken
+
+- [ ] allow long press on record button to take multiple
+
+- [ ] add shutter sound
 
 - flash
 
@@ -55,6 +64,10 @@ Some features to implement (not a prioritized list, just brainstorming):
  
  - [x] allow custom focus icon
  
+ - [ ] set exposure on focus
+ 
+ - [ ] add sound on focus tap
+ 
  - [ ] expose focus overlay display to a delegate
 
 - digital zoom
@@ -81,7 +94,9 @@ Some features to implement (not a prioritized list, just brainstorming):
 
 - [ ] live effect preview
 
-- video 
+- video  
+
+ - [ ] record video
 
  - [ ] take pictures while video is recording
 

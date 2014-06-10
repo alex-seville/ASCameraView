@@ -19,7 +19,8 @@
 - (IBAction)tapMostRecentThumnail:(UITapGestureRecognizer *)sender;
 @property (nonatomic, strong) UIImage *focusOverlayUIImage;
 - (IBAction)tapPreviewView:(UITapGestureRecognizer *)sender;
-- (IBAction)tapRecordButton:(UITapGestureRecognizer *)sender;
+- (IBAction)holdRecordButton:(UILongPressGestureRecognizer *)sender;
+@property (nonatomic, strong) NSTimer *recordTimer;
 
 @end
 
@@ -120,10 +121,26 @@
 		
 }
 
-- (IBAction)tapRecordButton:(UITapGestureRecognizer *)sender {
-	NSLog(@"record tapped");
-	[self.cameraLibrary recordWithCompletion:^(UIImage *mostRecent) {
-		self.mostRecentThumnailView.image = mostRecent;
-	}];
+
+- (IBAction)holdRecordButton:(UILongPressGestureRecognizer *)sender {
+	if (sender.state == UIGestureRecognizerStateBegan){
+		NSLog(@"started long press");
+		self.recordTimer = [NSTimer scheduledTimerWithTimeInterval:0.25 target:self selector:@selector(record) userInfo:nil repeats:YES];
+	}
+	else if (sender.state == UIGestureRecognizerStateEnded){
+		NSLog(@"end long press");
+		[self.recordTimer invalidate];
+	}
+	
 }
+
+- (void) record {
+	NSLog(@"recording");
+	 [self.cameraLibrary recordWithCompletion:^(UIImage *mostRecent) {
+	 self.mostRecentThumnailView.image = mostRecent;
+	 }];
+	 
+
+}
+
 @end

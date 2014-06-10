@@ -187,14 +187,14 @@ bool focusOnPoint = false;
 	
 	if (adjustingFocus) {
 		focusing=true;
-		NSLog(@"FOCUSING");
+		//NSLog(@"FOCUSING");
 		[self showFocusOverlay];
 	}
 	else {
 		if (focusing) {
 			focusing = false;
 			finishedFocus = true;
-			NSLog(@"DONE FOCUSING");
+			//NSLog(@"DONE FOCUSING");
 			[self hideFocusOverlay];
 		}
 	}
@@ -204,9 +204,9 @@ bool focusOnPoint = false;
 - (void) showFocusOverlay {
 	//When the camera is autofocusing, the square is just shown in the middle
 	//we always reset this object, in case we're modified the frame
-	NSLog(@"creating focusing overlay");
+	//NSLog(@"creating focusing overlay");
 	self.focusingOverlay = [[UIImageView alloc] initWithImage:self.focusOverlayImage];
-	NSLog(@"image loaded? %f", self.focusingOverlay.image.size.width);
+	//NSLog(@"image loaded? %f", self.focusingOverlay.image.size.width);
 	
 	if (self.consumerView != nil){
 		if (focusOnPoint){
@@ -229,9 +229,9 @@ bool focusOnPoint = false;
 											repeats:NO];
 			
 		}else{
-			NSLog(@"getting center of consumer view");
+			//NSLog(@"getting center of consumer view");
 			self.focusingOverlay.center = [self.consumerView convertPoint:self.consumerView.center fromView:self.consumerView.superview];
-			NSLog(@"adding focusing overlay to parent view");
+			//NSLog(@"adding focusing overlay to parent view");
 		}
 		self.focusingOverlay.alpha = 0.0f;
 		[self.consumerView addSubview:self.focusingOverlay];
@@ -245,7 +245,7 @@ bool focusOnPoint = false;
 
 - (void) hideFocusOverlay {
 	if (self.consumerView != nil && self.focusingOverlay != nil){
-		NSLog(@"removing focusing overlay");
+		//NSLog(@"removing focusing overlay");
 		[UIView animateWithDuration:0.25 animations:^() {
 			self.focusingOverlay.alpha = 0.0f;
 		} completion:^(BOOL finished) {

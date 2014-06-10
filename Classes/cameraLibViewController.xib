@@ -33,12 +33,12 @@
                         <outletCollection property="gestureRecognizers" destination="mqG-49-RpI" appends="YES" id="txa-3A-83B"/>
                     </connections>
                 </imageView>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="record.png" translatesAutoresizingMaskIntoConstraints="NO" id="nHq-ox-dN3">
+                <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="record.png" translatesAutoresizingMaskIntoConstraints="NO" id="nHq-ox-dN3">
                     <rect key="frame" x="123" y="494" width="75" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <gestureRecognizers/>
                     <connections>
-                        <outletCollection property="gestureRecognizers" destination="tEt-sI-8hR" appends="YES" id="xTW-ts-cbi"/>
+                        <outletCollection property="gestureRecognizers" destination="AZg-S3-j4Y" appends="YES" id="wAi-Fr-qVd"/>
                     </connections>
                 </imageView>
             </subviews>
@@ -56,11 +56,11 @@
                 <action selector="tapPreviewView:" destination="-1" id="zyu-hO-fGw"/>
             </connections>
         </tapGestureRecognizer>
-        <tapGestureRecognizer id="tEt-sI-8hR">
+        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.10000000000000001" id="AZg-S3-j4Y">
             <connections>
-                <action selector="tapRecordButton:" destination="-1" id="yER-QB-BKh"/>
+                <action selector="holdRecordButton:" destination="-1" id="Krg-dQ-M9Q"/>
             </connections>
-        </tapGestureRecognizer>
+        </pongPressGestureRecognizer>
     </objects>
     <resources>
         <image name="record.png" width="145" height="144"/>

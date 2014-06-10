@@ -26,7 +26,7 @@ Some features to implement (not a prioritized list, just brainstorming):
 
 - [x] update thumbnail after photo taken
 
-- [ ] allow long press on record button to take multiple
+- [x] allow long press on record button to take multiple
 
 - [ ] add shutter sound
 
@@ -85,6 +85,8 @@ Some features to implement (not a prioritized list, just brainstorming):
 - camera roll thumbnail
 
  - [x] camera roll preview thumbnail
+ 
+ - [ ] use animation when updating thumbnail
 
  - [ ] customize album for preview/saving
 

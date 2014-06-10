@@ -14,6 +14,7 @@
 		65788D4D1944D8BF00E72C97 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 65788D4C1944D8BF00E72C97 /* README.md */; };
 		65788D501944DB9A00E72C97 /* focus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65788D4F1944DB9A00E72C97 /* focus.png */; };
 		65B72FE219424F6C00136956 /* cameraLibViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B72FE019424F6C00136956 /* cameraLibViewController.m */; };
+		65DA6628194645240021694C /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 65DA6627194645240021694C /* record.png */; };
 		65FDDBC11939203A00B942F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FDDBC01939203A00B942F3 /* Foundation.framework */; };
 		65FDDBCF1939203A00B942F3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FDDBCE1939203A00B942F3 /* XCTest.framework */; };
 		65FDDBD01939203A00B942F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FDDBC01939203A00B942F3 /* Foundation.framework */; };
@@ -55,6 +56,7 @@
 		65B72FDF19424F6C00136956 /* cameraLibViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cameraLibViewController.h; path = Classes/cameraLibViewController.h; sourceTree = "<group>"; };
 		65B72FE019424F6C00136956 /* cameraLibViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cameraLibViewController.m; path = Classes/cameraLibViewController.m; sourceTree = "<group>"; };
 		65B72FE119424F6C00136956 /* cameraLibViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = cameraLibViewController.xib; path = Classes/cameraLibViewController.xib; sourceTree = "<group>"; };
+		65DA6627194645240021694C /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
 		65FDDBBD1939203A00B942F3 /* libCameraLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCameraLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		65FDDBC01939203A00B942F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		65FDDBCD1939203A00B942F3 /* CameraLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +112,7 @@
 		65788D4E1944DB9A00E72C97 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				65DA6627194645240021694C /* record.png */,
 				65788D4F1944DB9A00E72C97 /* focus.png */,
 			);
 			path = Assets;
@@ -219,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65DA6628194645240021694C /* record.png in Resources */,
 				65788D501944DB9A00E72C97 /* focus.png in Resources */,
 				65788D4D1944D8BF00E72C97 /* README.md in Resources */,
 				65788D461944C3B200E72C97 /* cameraLib.podspec in Resources */,

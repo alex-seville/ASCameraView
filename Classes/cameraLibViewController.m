@@ -19,6 +19,7 @@
 - (IBAction)tapMostRecentThumnail:(UITapGestureRecognizer *)sender;
 @property (nonatomic, strong) UIImage *focusOverlayUIImage;
 - (IBAction)tapPreviewView:(UITapGestureRecognizer *)sender;
+- (IBAction)tapRecordButton:(UITapGestureRecognizer *)sender;
 
 @end
 
@@ -117,5 +118,12 @@
 
 	[self.cameraLibrary focusOnPoint:point];
 		
+}
+
+- (IBAction)tapRecordButton:(UITapGestureRecognizer *)sender {
+	NSLog(@"record tapped");
+	[self.cameraLibrary recordWithCompletion:^(UIImage *mostRecent) {
+		self.mostRecentThumnailView.image = mostRecent;
+	}];
 }
 @end

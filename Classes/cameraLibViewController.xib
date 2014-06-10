@@ -33,6 +33,14 @@
                         <outletCollection property="gestureRecognizers" destination="mqG-49-RpI" appends="YES" id="txa-3A-83B"/>
                     </connections>
                 </imageView>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="record.png" translatesAutoresizingMaskIntoConstraints="NO" id="nHq-ox-dN3">
+                    <rect key="frame" x="123" y="494" width="75" height="75"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="tEt-sI-8hR" appends="YES" id="xTW-ts-cbi"/>
+                    </connections>
+                </imageView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -48,5 +56,13 @@
                 <action selector="tapPreviewView:" destination="-1" id="zyu-hO-fGw"/>
             </connections>
         </tapGestureRecognizer>
+        <tapGestureRecognizer id="tEt-sI-8hR">
+            <connections>
+                <action selector="tapRecordButton:" destination="-1" id="yER-QB-BKh"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="record.png" width="145" height="144"/>
+    </resources>
 </document>

@@ -43,4 +43,10 @@
 		 }];
 }
 
+- (void) saveImage:(UIImage *)imageToSave onCompletion:(void (^)(void))onCompletion {
+	[[[ALAssetsLibrary alloc] init] writeImageToSavedPhotosAlbum:[imageToSave CGImage] orientation:(ALAssetOrientation)[imageToSave imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error) {
+		onCompletion();
+	}];
+}
+
 @end

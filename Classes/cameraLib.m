@@ -9,11 +9,13 @@
 #import "cameraLib.h"
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "assetLib.h"
 
 @interface cameraLib()
 
 /* AVCapture objects */
 @property (nonatomic, strong) AVCaptureDevice *device;
+@property (nonatomic, strong) AVCaptureStillImageOutput *stillImageOutput;
 
 /* Configurations objects */
 
@@ -25,6 +27,8 @@
 @property (nonatomic, assign) BOOL isFocusOverlayShown;
 //you can customize the overlay image asset
 @property (nonatomic, strong) UIImage *focusOverlayImage;
+
+
 
 
 @end
@@ -102,9 +106,37 @@ bool focusOnPoint = false;
 	previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
 	[self.consumerView.layer addSublayer:previewLayer];
 	
+	//by default we're going to capture an image (for now)
+	self.stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
+	if ([session canAddOutput:self.stillImageOutput])
+	{
+		[self.stillImageOutput setOutputSettings:@{AVVideoCodecKey : AVVideoCodecJPEG}];
+		[session addOutput:self.stillImageOutput];
+		
+	}
+	
 	//start capture
 	[session startRunning];
 	
+}
+
+//take a picture or record a video
+- (void) recordWithCompletion:(void (^)(UIImage *mostRecent))onCompletion{
+	NSLog(@"record");
+	[self.stillImageOutput captureStillImageAsynchronouslyFromConnection:[self. stillImageOutput connectionWithMediaType:AVMediaTypeVideo] completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+		
+		NSLog(@"error? %@", error);
+		
+		if (imageDataSampleBuffer)
+		{
+			NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+			UIImage *image = [[UIImage alloc] initWithData:imageData];
+			NSLog(@"got a ui image to save");
+			[[[assetLib alloc] init] saveImage:image onCompletion:^{
+				onCompletion(image);
+			}];
+		}
+	}];
 }
 
 #pragma mark - private methods

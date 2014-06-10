@@ -13,4 +13,6 @@
 
 - (void) getLatestImageWithSuccess:(void (^)(UIImage *image))onSuccess;
 
+- (void) saveImage:(UIImage *)imageToSave onCompletion:(void (^)(void))onCompletion;
+
 @end

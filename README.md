@@ -126,3 +126,4 @@ Taking inspiration from:
 Resources:
 - https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture.html
 - http://www.ios-developer.net/iphone-ipad-programmer/development/camera/record-video-with-avcapturesession-2
+- https://developer.apple.com/library/ios/samplecode/AVCam/Listings/AVCam_AVCamViewController_m.html

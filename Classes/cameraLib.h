@@ -30,6 +30,8 @@
 //focus on a point
 - (void) focusOnPoint:(CGPoint)autoFocusPoint;
 
+- (void) recordWithCompletion:(void (^)(UIImage *mostRecent))onCompletion;
+
 
 
 @end

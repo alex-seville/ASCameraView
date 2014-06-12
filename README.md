@@ -30,6 +30,8 @@ Some features to implement (not a prioritized list, just brainstorming):
 
 - [ ] add shutter sound
 
+- [ ] alternate saving locations (in memory, straight to web, etc...)
+
 - flash
 
  - [ ] allow toggling of modes
@@ -131,6 +133,8 @@ Some neat third-party features include:
 - [ ] multi-shots
 
 - [ ] face detect timer
+
+- [ ] fake lytro effect (taking images with different focus depths)
 
 ----------
 

@@ -8,7 +8,7 @@ cameraLib (real name TBD)
 3. Add a Podfile to your new project with `pod "cameraLib", :path => "../cameraLib/"` (where '../' is the appropriate path to the cloned repo)
 4. Run `pod install`
 5. Open your test workspace and add `#import <cameraLibViewController.h>` to the top of a file
-6. In a viewLoad or action, add `cameraLibViewController *picker = [[cameraLibViewController alloc] init];` to init the library viewcontroller
+6. In a viewDidAppear (viewDidLoad won't work) or action (i.e. button click), add `cameraLibViewController *picker = [[cameraLibViewController alloc] init];` to init the library viewcontroller
 7. Add `[self presentViewController:picker animated:YES completion:nil];` to present the view controller
 
 ##Structure

@@ -105,6 +105,8 @@ Some features to implement (not a prioritized list, just brainstorming):
  - [ ] take pictures while video is recording
 
  - [ ] show video run time
+ 
+ - [ ] slow mo video
 
 - pano
 

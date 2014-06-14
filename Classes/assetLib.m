@@ -28,8 +28,31 @@
 					  usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
 						  if (nil != result) {
 							  ALAssetRepresentation *repr = [result defaultRepresentation];
-							  // this is the most recent saved photo
-							  UIImage *img = [UIImage imageWithCGImage:[repr fullResolutionImage]];
+							  
+							  UIImage *img;
+							  
+							  //check the orientation, in case we need to flip
+							  if (
+								  repr.orientation == ALAssetOrientationUp ||
+								  repr.orientation == ALAssetOrientationUpMirrored){
+								  
+								  // this is the most recent saved photo
+								  img = [UIImage imageWithCGImage:[repr fullResolutionImage] scale:repr.scale orientation:UIImageOrientationRight];
+							  } else if (repr.orientation == ALAssetOrientationDown ||
+										 repr.orientation == ALAssetOrientationDownMirrored){
+								  // this is the most recent saved photo
+								  img = [UIImage imageWithCGImage:[repr fullResolutionImage] scale:repr.scale orientation:UIImageOrientationLeft];
+							  } else if (repr.orientation == ALAssetOrientationLeft ||
+										 repr.orientation == ALAssetOrientationLeftMirrored){
+								  // this is the most recent saved photo
+								  img = [UIImage imageWithCGImage:[repr fullResolutionImage] scale:repr.scale orientation:UIImageOrientationLeft];
+							  } else if (repr.orientation == ALAssetOrientationRight ||
+										 repr.orientation == ALAssetOrientationRightMirrored){
+								  // this is the most recent saved photo
+								  img = [UIImage imageWithCGImage:[repr fullResolutionImage] scale:repr.scale orientation:UIImageOrientationRight];
+							  }
+							  
+							  
 							  onSuccess(img);
 							  // we only need the first (most recent) photo -- stop the enumeration
 							  *stop = YES;

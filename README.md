@@ -23,40 +23,38 @@ ASCameraViewPickerController - a drop-in replacement for UIImagePickerController
 
 ##Features
 
-A camera lib for iOS
+I've split the feature set into 5 milestones
 
-Some features to implement (not a prioritized list, just brainstorming):
-- capture
+- [ ] Milestone #1: Feature/API parity with UIImagePickerController
 
-- [x] take photo
+- [ ] Milestone #2: Customizations to that feature set (colors, images, etc...)
 
-- [x] update thumbnail after photo taken
+- [ ] Milestone #3: Feature/API parity with the iOS camera app
 
-- [x] allow long press on record button to take multiple
+- [ ] Milestone #4: Customization to that feature set
 
-- [ ] add shutter sound
+- [ ] Milestone #5: Advanced features
 
-- [ ] alternate saving locations (in memory, straight to web, etc...)
+
+###Milestone #1
 
 - flash
 
  - [ ] allow toggling of modes
  
- - [ ] allow customization of UI via delegate
- 
-- HDR
-
- - [ ] allow toggling of HDR
- 
- - [ ] allow customization of bracketing (maybe only available in ios8)
- 
- - [ ] allow customization of UI via delegate
-
 - Device switching
 
  - [ ] toggling between front and back camera
  
- - [ ] customization of UI via delegate
+- capture
+
+ - [ ] take single photo
+ 
+ - [ ] use/retake buttons
+
+ - [ ] choose crop after taking
+
+ - [ ] cancel button
 
 - focus rectangle
 
@@ -66,26 +64,67 @@ Some features to implement (not a prioritized list, just brainstorming):
  
  - [x] tap to focus
  
+ - [ ] holding down capture button does a center focus
+ 
  - [x] show smaller focus rectangle when tapped focus change is made
  
- - [ ] customize focus color
- 
- - [x] allow custom focus icon
- 
  - [ ] set exposure on focus
- 
- - [ ] add sound on focus tap
- 
- - [ ] expose focus overlay display to a delegate
 
 - digital zoom
 
  - [ ] pinch to zoom in or out digitally
  
+- video  
+
+ - [ ] record video
+
+
+###Milestone #2
+
+- flash
+ 
+  - [ ] allow customization of UI/behavior via delegate/block
+
+- Device switching
+ 
+ - [ ] customization of UI via delegate
+ 
+- capture
+ 
+ - [ ] alternate saving locations (in memory, straight to web, etc...)
+ 
+- focus rectangle
+ 
+ - [ ] customize focus color
+ 
+ - [ ] allow custom focus icon
+ 
+ - [ ] expose focus overlay display to a delegate
+
+- digital zoom
+ 
  - [ ] customize colors
  
  - [ ] customization of ui via delegate
+ 
+- [ ] customize shutter button
 
+- [x] customize background color
+ 
+ 
+###Milestone #3
+ 
+ 
+ - capture
+
+- [x] update thumbnail after photo taken
+
+- [x] allow long press on record button to take multiple
+
+- HDR
+
+ - [ ] allow toggling of HDR
+ 
 - [ ] default crops (photo, square)
 
 - [ ] mode toggle (video, photo, square, pano)
@@ -96,17 +135,13 @@ Some features to implement (not a prioritized list, just brainstorming):
  
  - [ ] use animation when updating thumbnail
 
- - [ ] customize album for preview/saving
-
  - [ ] camera roll browser (after clicking on thumbnail
-
+ 
 - [ ] basic effects
 
 - [ ] live effect preview
-
-- video  
-
- - [ ] record video
+ 
+- video
 
  - [ ] take pictures while video is recording
 
@@ -119,14 +154,32 @@ Some features to implement (not a prioritized list, just brainstorming):
  - [ ] show stability arrow
 
  - [ ]  allow long shutter photo taking
+ 
 
-- [ ] customize shutter button
-
-- [x] customize background color
-
+###Milestone #4
 
 
-Some neat third-party features include:
+- capture
+
+- [ ] add shutter sound
+ 
+- HDR
+ 
+ - [ ] allow customization of bracketing (maybe only available in ios8)
+ 
+ - [ ] allow customization of UI/behavior via delegate/block
+
+- focus rectangle
+ 
+ - [ ] add sound on focus tap
+
+- camera roll thumbnail
+
+ - [ ] customize album for preview/saving
+
+
+###Milestone #5
+
 
 - [ ] Holding down to record videos vine-style (stop motion/starting and stopping)
 
@@ -143,6 +196,8 @@ Some neat third-party features include:
 - [ ] face detect timer
 
 - [ ] fake lytro effect (taking images with different focus depths)
+
+
 
 ----------
 

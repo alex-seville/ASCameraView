@@ -1,19 +1,25 @@
-cameraLib (real name TBD)
+ASCameraView
 =========
 
 ##Try it out
 
 1. Clone this repo
 2. Create an empty xcode project in a different directory
-3. Add a Podfile to your new project with `pod "cameraLib", :path => "../cameraLib/"` (where '../' is the appropriate path to the cloned repo)
+3. Add a Podfile to your new project with `pod "ASCameraView", :path => "../ASCameraView/"` (where '../' is the appropriate path to the cloned repo)
 4. Run `pod install`
-5. Open your test workspace and add `#import <cameraLibViewController.h>` to the top of a file
-6. In a viewDidAppear (viewDidLoad won't work) or action (i.e. button click), add `cameraLibViewController *picker = [[cameraLibViewController alloc] init];` to init the library viewcontroller
+5. Open your test workspace and add `#import <ASCameraViewPickerController.h>` to the top of a file
+6. In a viewDidAppear (viewDidLoad won't work) or action (i.e. button click), add `ASCameraViewPickerController *picker = [[ASCameraViewPickerController alloc] init];` to init the library viewcontroller
 7. Add `[self presentViewController:picker animated:YES completion:nil];` to present the view controller
 
 ##Structure
 
-The current plan is to have the library act like UIImagePickerController, except with a more advanced featureset.
+There are 3 parts:
+
+ASCamera - the underlying AVFoundation logic
+
+ASCameraView - a camera view using ASCamera
+
+ASCameraViewPickerController - a drop-in replacement for UIImagePickerController
 
 ##Features
 

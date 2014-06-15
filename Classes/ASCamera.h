@@ -1,6 +1,6 @@
 //
-//  cameraLib.h
-//  cameraLib
+//  ASCamera.h
+//  ASCamera
 //
 //  Created by Alexander Seville on 5/31/14.
 //  Copyright (c) 2014 AlexSeville. All rights reserved.
@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface cameraLib : NSObject {
+@interface ASCamera : NSObject {
     AVCaptureSession *session;
 }
 
@@ -20,8 +20,6 @@
 + (id)sharedManager;
 
 
-// this function exposes all the default functions and is called by cameraLibViewController
-// it can also be consumed directly, if someone wants to use their own viewController
 - (void) showCameraWithPreviewView:(UIView *) previewView showFocusOverlay:(BOOL)showFocusOverlay focusOverlayImage:(UIImage *)focusOverlayImage;
 
 // default version

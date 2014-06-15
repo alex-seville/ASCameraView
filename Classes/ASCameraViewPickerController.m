@@ -1,19 +1,19 @@
 //
-//  cameraLibViewController.m
-//  CameraLib
+//  ASCameraViewPickerController.m
+//  ASCameraViewPickerController
 //
 //  Created by Alexander Seville on 6/6/14.
 //  Copyright (c) 2014 AlexSeville. All rights reserved.
 //
 
-#import "cameraLibViewController.h"
-#import "cameraLib.h"
+#import "ASCameraViewPickerController.h"
+#import "ASCamera.h"
 #import "assetLib.h"
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface cameraLibViewController ()
-@property (nonatomic, strong) cameraLib *cameraLibrary;
+@interface ASCameraViewPickerController ()
+@property (nonatomic, strong) ASCamera *camera;
 @property (unsafe_unretained, nonatomic) IBOutlet UIView *liveDisplayView;
 @property (unsafe_unretained, nonatomic) IBOutlet UIImageView *mostRecentThumnailView;
 - (IBAction)tapMostRecentThumnail:(UITapGestureRecognizer *)sender;
@@ -24,11 +24,11 @@
 
 @end
 
-@implementation cameraLibViewController
+@implementation ASCameraViewPickerController
 
 - (id)init
 {
-	NSString *nibName = @"cameraLibViewController";
+	NSString *nibName = @"ASCameraViewPickerController";
     NSBundle *bundle = nil;
     self = [super initWithNibName:nibName bundle:bundle];
     if (self) {
@@ -62,14 +62,14 @@
 	}
 	
 	//load the camera
-	self.cameraLibrary = [[cameraLib alloc] init];
+	self.camera = [[ASCamera alloc] init];
 	NSLog(@"Set up view controller");
 	
 	if (!self.disableFocusOverlay && !self.focusOverlayImage){
-		self.focusOverlayUIImage = [UIImage imageNamed:@"focus.png"];
+		//self.focusOverlayUIImage = [UIImage imageNamed:@"focus.png"];
 	}
 	
-	[self.cameraLibrary showCameraWithPreviewView:self.liveDisplayView showFocusOverlay:!self.disableFocusOverlay focusOverlayImage:self.focusOverlayUIImage];
+	[self.camera showCameraWithPreviewView:self.liveDisplayView showFocusOverlay:!self.disableFocusOverlay focusOverlayImage:self.focusOverlayUIImage];
 }
 
 - (void)didReceiveMemoryWarning
@@ -117,7 +117,7 @@
 - (IBAction)tapPreviewView:(UITapGestureRecognizer *)sender {
 	CGPoint point = [sender locationInView:self.liveDisplayView];
 
-	[self.cameraLibrary focusOnPoint:point];
+	[self.camera focusOnPoint:point];
 		
 }
 
@@ -136,7 +136,7 @@
 
 - (void) record {
 	NSLog(@"recording");
-	 [self.cameraLibrary recordWithCompletion:^(UIImage *mostRecent) {
+	 [self.camera recordWithCompletion:^(UIImage *mostRecent) {
 	 self.mostRecentThumnailView.image = mostRecent;
 	 }];
 	 

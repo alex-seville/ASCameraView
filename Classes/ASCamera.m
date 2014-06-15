@@ -1,17 +1,17 @@
 //
-//  cameraLib.m
-//  cameraLib
+//  ASCamera.m
+//  ASCamera
 //
 //  Created by Alexander Seville on 5/31/14.
 //  Copyright (c) 2014 AlexSeville. All rights reserved.
 //
 
-#import "cameraLib.h"
+#import "ASCamera.h"
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "assetLib.h"
 
-@interface cameraLib()
+@interface ASCamera()
 
 /* AVCapture objects */
 @property (nonatomic, strong) AVCaptureDevice *device;
@@ -33,7 +33,7 @@
 
 @end
 
-@implementation cameraLib
+@implementation ASCamera
 
 @synthesize session;
 
@@ -87,7 +87,7 @@ bool focusOnPoint = false;
 	self.focusOverlayImage = focusOverlayImage;
 		
 	//this is the actual view that will show the camera feed
-	//in most cases it will be the cameraLibViewController's preview view
+	//in most cases it will be the ASCameraViewController's preview view
 	//but it could be any view
 	self.consumerView = previewView;
 	

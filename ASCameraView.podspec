@@ -5,11 +5,11 @@
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
 #
 Pod::Spec.new do |s|
-  s.name             = "cameraLib"
+  s.name             = "ASCameraView"
   s.version          = "0.1.0"
-  s.summary          = "A short description of cameraLib."
+  s.summary          = "A short description of ASCameraView."
   s.description      = <<-DESC
-                       An optional longer description of cameraLib
+                       An optional longer description of ASCameraView
 
                        * Markdown format.
                        * Don't worry about the indent, we strip it!
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.homepage         = "http://EXAMPLE/NAME"
   s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "seville" => "seville@yahoo-inc.com" }
+  s.author           = { "alex-seville" => "hi@alexanderseville.com" }
   s.source           = { :git => "http://EXAMPLE/NAME.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/EXAMPLE'
 

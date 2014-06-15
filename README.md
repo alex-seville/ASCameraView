@@ -36,7 +36,7 @@ I've split the feature set into 5 milestones
 - [ ] Milestone #5: Advanced features
 
 
-###Milestone #1
+###Milestone #1: Feature/API parity with UIImagePickerController
 
 - flash
 
@@ -79,7 +79,7 @@ I've split the feature set into 5 milestones
  - [ ] record video
 
 
-###Milestone #2
+###Milestone #2: Customizations to that feature set (colors, images, etc...)
 
 - flash
  
@@ -112,7 +112,7 @@ I've split the feature set into 5 milestones
 - [x] customize background color
  
  
-###Milestone #3
+###Milestone #3: Feature/API parity with the iOS camera app
  
  
  - capture
@@ -156,7 +156,7 @@ I've split the feature set into 5 milestones
  - [ ]  allow long shutter photo taking
  
 
-###Milestone #4
+###Milestone #4: Customization to that feature set
 
 
 - capture
@@ -178,7 +178,7 @@ I've split the feature set into 5 milestones
  - [ ] customize album for preview/saving
 
 
-###Milestone #5
+###Milestone #5: Advanced features
 
 
 - [ ] Holding down to record videos vine-style (stop motion/starting and stopping)

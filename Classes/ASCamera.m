@@ -99,7 +99,7 @@ bool focusOnPoint = false;
 	
 	//Create the preview layer and attach it to the consumer view
 	AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:session];
-	
+	NSLog(@"setting up preview layer");
 	//set the size to match the consumer view
 	previewLayer.frame = self.consumerView.bounds;
 	
@@ -114,6 +114,7 @@ bool focusOnPoint = false;
 		[session addOutput:self.stillImageOutput];
 		
 	}
+	NSLog(@"start capture");
 	
 	//start capture
 	[session startRunning];

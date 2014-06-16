@@ -30,6 +30,6 @@
 
 - (void) recordWithCompletion:(void (^)(UIImage *mostRecent))onCompletion;
 
-
+- (void) setFlashMode:(int)mode;
 
 @end

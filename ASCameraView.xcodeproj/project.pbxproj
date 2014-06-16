@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07E9CC9885384574A8CC3AEE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 500BEA1E97E24657A651141C /* libPods.a */; };
+		6500BE16194E6E0600B3A487 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6500BE15194E6E0600B3A487 /* Podfile */; };
+		6500BE1B194E753900B3A487 /* flash@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6500BE19194E753900B3A487 /* flash@1x.png */; };
+		6500BE1C194E753900B3A487 /* flash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6500BE1A194E753900B3A487 /* flash@2x.png */; };
 		6524D314194CE5EE00071B13 /* ASCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6524D313194CE5EE00071B13 /* ASCameraView.m */; };
 		655D25C6193A6A310018BC1D /* ASCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 655D25C5193A6A310018BC1D /* ASCamera.m */; };
 		65788D461944C3B200E72C97 /* ASCameraView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 65788D451944C3B200E72C97 /* ASCameraView.podspec */; };
@@ -46,6 +50,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		500BEA1E97E24657A651141C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FBEDC390B444D39A39B6A9A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		6500BE15194E6E0600B3A487 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		6500BE19194E753900B3A487 /* flash@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash@1x.png"; sourceTree = "<group>"; };
+		6500BE1A194E753900B3A487 /* flash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash@2x.png"; sourceTree = "<group>"; };
 		6524D312194CE5EE00071B13 /* ASCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASCameraView.h; path = Classes/ASCameraView.h; sourceTree = "<group>"; };
 		6524D313194CE5EE00071B13 /* ASCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASCameraView.m; path = Classes/ASCameraView.m; sourceTree = "<group>"; };
 		655D25C4193A6A310018BC1D /* ASCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASCamera.h; path = Classes/ASCamera.h; sourceTree = "<group>"; };
@@ -74,6 +83,7 @@
 			files = (
 				65788D4B1944CFCC00E72C97 /* AssetsLibrary.framework in Frameworks */,
 				65FDDBC11939203A00B942F3 /* Foundation.framework in Frameworks */,
+				07E9CC9885384574A8CC3AEE /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +127,8 @@
 		65788D4E1944DB9A00E72C97 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				6500BE19194E753900B3A487 /* flash@1x.png */,
+				6500BE1A194E753900B3A487 /* flash@2x.png */,
 				65DA6627194645240021694C /* record.png */,
 				65788D4F1944DB9A00E72C97 /* focus.png */,
 			);
@@ -126,6 +138,7 @@
 		65FDDBB41939203A00B942F3 = {
 			isa = PBXGroup;
 			children = (
+				6500BE15194E6E0600B3A487 /* Podfile */,
 				65788D4E1944DB9A00E72C97 /* Assets */,
 				65788D4C1944D8BF00E72C97 /* README.md */,
 				65788D451944C3B200E72C97 /* ASCameraView.podspec */,
@@ -133,6 +146,7 @@
 				655D25C8193A6A3D0018BC1D /* Classes */,
 				65FDDBBF1939203A00B942F3 /* Frameworks */,
 				65FDDBBE1939203A00B942F3 /* Products */,
+				5FBEDC390B444D39A39B6A9A /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,6 +166,7 @@
 				65FDDBC01939203A00B942F3 /* Foundation.framework */,
 				65FDDBCE1939203A00B942F3 /* XCTest.framework */,
 				65FDDBD11939203A00B942F3 /* UIKit.framework */,
+				500BEA1E97E24657A651141C /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,10 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65FDDBE01939203A00B942F3 /* Build configuration list for PBXNativeTarget "ASCameraView" */;
 			buildPhases = (
+				BF34D071BDE9401B9AA3BEAE /* Check Pods Manifest.lock */,
 				65FDDBB91939203A00B942F3 /* Sources */,
 				65FDDBBA1939203A00B942F3 /* Frameworks */,
 				65FDDBBB1939203A00B942F3 /* CopyFiles */,
 				65788D431944C32D00E72C97 /* Resources */,
+				7B42891973D8425AA471A9FF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,9 +244,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6500BE16194E6E0600B3A487 /* Podfile in Resources */,
 				65DA6628194645240021694C /* record.png in Resources */,
+				6500BE1C194E753900B3A487 /* flash@2x.png in Resources */,
 				65788D501944DB9A00E72C97 /* focus.png in Resources */,
 				65788D4D1944D8BF00E72C97 /* README.md in Resources */,
+				6500BE1B194E753900B3A487 /* flash@1x.png in Resources */,
 				65788D461944C3B200E72C97 /* ASCameraView.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +262,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7B42891973D8425AA471A9FF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF34D071BDE9401B9AA3BEAE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		65FDDBB91939203A00B942F3 /* Sources */ = {
@@ -343,6 +396,7 @@
 		};
 		65FDDBE11939203A00B942F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FBEDC390B444D39A39B6A9A /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/ASCameraView.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -356,6 +410,7 @@
 		};
 		65FDDBE21939203A00B942F3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FBEDC390B444D39A39B6A9A /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/ASCameraView.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

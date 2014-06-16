@@ -33,5 +33,5 @@ Pod::Spec.new do |s|
   s.osx.exclude_files = 'Classes/ios'
   # s.public_header_files = 'Classes/**/*.h'
   # s.frameworks = 'SomeFramework', 'AnotherFramework'
-  # s.dependency 'JSONKit', '~> 1.4'
+  s.dependency 'DDExpandableButton', '~> 1.1.0'
 end

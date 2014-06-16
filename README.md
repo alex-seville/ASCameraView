@@ -58,11 +58,11 @@ I've split the feature set into 5 milestones
 
 - focus rectangle
 
- - [x] show focus rectangle on autofocus changes (iOS 6 or less style)
+ - [ ] show focus rectangle on autofocus changes (iOS 6 or less style)
  
  - [ ] show focus rectangle on autofocus changes (iOS 7+ style)
  
- - [x] tap to focus
+ - [ ] tap to focus
  
  - [ ] holding down capture button does a center focus
  
@@ -109,7 +109,7 @@ I've split the feature set into 5 milestones
  
 - [ ] customize shutter button
 
-- [x] customize background color
+- [ ] customize background color
  
  
 ###Milestone #3: Feature/API parity with the iOS camera app
@@ -117,9 +117,9 @@ I've split the feature set into 5 milestones
  
  - capture
 
-- [x] update thumbnail after photo taken
+- [ ] update thumbnail after photo taken
 
-- [x] allow long press on record button to take multiple
+- [ ] allow long press on record button to take multiple
 
 - HDR
 
@@ -131,7 +131,7 @@ I've split the feature set into 5 milestones
 
 - camera roll thumbnail
 
- - [x] camera roll preview thumbnail
+ - [ ] camera roll preview thumbnail
  
  - [ ] use animation when updating thumbnail
 

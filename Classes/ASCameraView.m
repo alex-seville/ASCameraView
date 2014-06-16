@@ -46,4 +46,12 @@
 	return self;
 }
 
+- (void) recordWithCompletion:(void (^)(UIImage *mostRecent))onCompletion {
+	[self.camera recordWithCompletion:onCompletion];
+}
+
+- (void) setFlashMode:(int)mode {
+	[self.camera setFlashMode:mode];
+}
+
 @end

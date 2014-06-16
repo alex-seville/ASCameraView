@@ -140,6 +140,30 @@ bool focusOnPoint = false;
 	}];
 }
 
+- (void) setFlashMode:(int)mode {
+	switch (mode)
+	{
+		default:
+			[_device lockForConfiguration:nil];
+			[_device setFlashMode:AVCaptureFlashModeAuto];
+			[_device unlockForConfiguration];
+
+			break;
+		case 1:
+			[_device lockForConfiguration:nil];
+			[_device setFlashMode:AVCaptureFlashModeOn];
+			[_device unlockForConfiguration];
+			
+			break;
+		case 2:
+			[_device lockForConfiguration:nil];
+			[_device setFlashMode:AVCaptureFlashModeOff];
+			[_device unlockForConfiguration];
+			
+			break;
+	}
+}
+
 #pragma mark - private methods
 
 - (void) setupVideoCapture {

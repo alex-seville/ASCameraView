@@ -1,1 +1,10 @@
+PODS:
+  - DDExpandableButton (1.1.0)
+
+DEPENDENCIES:
+  - DDExpandableButton (~> 1.1.0)
+
+SPEC CHECKSUMS:
+  DDExpandableButton: b18fb4d9ff77c1d71b9dde959dd5e0d90e8df439
+
 COCOAPODS: 0.33.1

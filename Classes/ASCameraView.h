@@ -10,5 +10,14 @@
 
 @interface ASCameraView : UIView
 
+typedef enum ASCameraViewFlashMode {
+	AUTO = 0,
+	ON = 1,
+	OFF = 2
+} ASCameraViewFlashMode;
+
+- (void) recordWithCompletion:(void (^)(UIImage *mostRecent))onCompletion;
+
+- (void) setFlashMode:(int)mode;
 
 @end

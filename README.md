@@ -40,7 +40,7 @@ I've split the feature set into 5 milestones
 
 - flash
 
- - [ ] allow toggling of modes
+ - [x] allow toggling of modes
  
 - Device switching
 

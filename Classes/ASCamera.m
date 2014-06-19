@@ -15,6 +15,9 @@
 
 /* AVCapture objects */
 @property (nonatomic, strong) AVCaptureDevice *device;
+
+@property (nonatomic, strong) AVCaptureDevice *frontCamera;
+@property (nonatomic, strong) AVCaptureDevice *backCamera;
 @property (nonatomic, strong) AVCaptureStillImageOutput *stillImageOutput;
 
 /* Configurations objects */
@@ -164,12 +167,35 @@ bool focusOnPoint = false;
 	}
 }
 
+- (void) changeCamera {
+	if ([AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo].count > 1){
+		if (!self.frontCamera){
+			self.frontCamera = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo][1];
+		}
+		
+		if (_device == self.backCamera){
+			_device = self.frontCamera;
+		} else {
+			_device = self.backCamera;
+		}
+		
+		AVCaptureDeviceInput *VideoInputDevice = [AVCaptureDeviceInput deviceInputWithDevice:_device error:nil];
+		[session removeInput:[session inputs].firstObject];
+		[session addInput:VideoInputDevice];
+	}
+}
+
+- (bool) enableDeviceSwitching {
+	return ([AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo].count > 1);
+}
+
 #pragma mark - private methods
 
 - (void) setupVideoCapture {
 	_device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
 	if (_device)
 	{
+		self.backCamera = _device;
 		NSError *error;
 		AVCaptureDeviceInput *VideoInputDevice = [AVCaptureDeviceInput deviceInputWithDevice:_device error:&error];
 		if (!error)

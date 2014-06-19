@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASCameraViewPickerController">
             <connections>
                 <outlet property="cameraView" destination="BFO-GB-Ntb" id="ctz-n1-vnJ"/>
+                <outlet property="toggleDeviceView" destination="Oru-4M-1ph" id="C65-hR-6kM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="U1H-q4-24l"/>
             </connections>
         </placeholder>
@@ -41,6 +42,14 @@
                         <action selector="onCancelButtonClick:" destination="-1" eventType="touchUpInside" id="Tsf-ag-5aO"/>
                     </connections>
                 </button>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera_toggle.png" translatesAutoresizingMaskIntoConstraints="NO" id="Oru-4M-1ph">
+                    <rect key="frame" x="279" y="8" width="31" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="d1K-Xx-XoO" appends="YES" id="wsb-vp-zhh"/>
+                    </connections>
+                </imageView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -51,8 +60,14 @@
                 <action selector="onTapCapture:" destination="-1" id="xUD-Xn-u9q"/>
             </connections>
         </tapGestureRecognizer>
+        <tapGestureRecognizer id="d1K-Xx-XoO">
+            <connections>
+                <action selector="onTapCameraToggle:" destination="-1" id="oEr-2W-Kca"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
+        <image name="camera_toggle.png" width="31" height="27"/>
         <image name="record.png" width="145" height="144"/>
     </resources>
 </document>

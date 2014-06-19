@@ -20,4 +20,8 @@ typedef enum ASCameraViewFlashMode {
 
 - (void) setFlashMode:(int)mode;
 
+- (void) changeCamera;
+
+- (bool) enableDeviceSwitching;
+
 @end

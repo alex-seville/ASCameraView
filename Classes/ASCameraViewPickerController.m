@@ -15,7 +15,9 @@
 
 - (IBAction)onCancelButtonClick:(id)sender;
 - (IBAction)onTapCapture:(UITapGestureRecognizer *)sender;
+- (IBAction)onTapCameraToggle:(UITapGestureRecognizer *)sender;
 @property (unsafe_unretained, nonatomic) IBOutlet ASCameraView *cameraView;
+@property (unsafe_unretained, nonatomic) IBOutlet UIImageView *toggleDeviceView;
 
 @end
 
@@ -55,6 +57,11 @@
 	
 	[self.view addSubview:flashButton];
 	[flashButton addTarget:self action:@selector(toggleFlash:) forControlEvents:UIControlEventValueChanged];
+	if (![self.cameraView enableDeviceSwitching]){
+		self.toggleDeviceView.alpha = 0.7;
+		self.toggleDeviceView.userInteractionEnabled = false;
+	}
+	
 	
 }
 
@@ -76,6 +83,19 @@
 	[self.cameraView recordWithCompletion:^(UIImage *mostRecent) {
 		NSLog(@"done!");
 	}];
+}
+
+- (IBAction)onTapCameraToggle:(UITapGestureRecognizer *)sender {
+	NSLog(@"clicked camera");
+	[UIView  beginAnimations: @"SwitchDevice" context: nil];
+    [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.75];
+    [self.cameraView changeCamera];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.cameraView cache:NO];
+    [UIView commitAnimations];
+
+	
+	
 }
 
 - (void) toggleFlash:(DDExpandableButton *)sender

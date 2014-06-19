@@ -18,6 +18,8 @@
 		65788D4B1944CFCC00E72C97 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65788D4A1944CFCC00E72C97 /* AssetsLibrary.framework */; };
 		65788D4D1944D8BF00E72C97 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 65788D4C1944D8BF00E72C97 /* README.md */; };
 		65788D501944DB9A00E72C97 /* focus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65788D4F1944DB9A00E72C97 /* focus.png */; };
+		65B026CE194F79D500589B13 /* camera_toggle@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B026CC194F79D500589B13 /* camera_toggle@1x.png */; };
+		65B026CF194F79D500589B13 /* camera_toggle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B026CD194F79D500589B13 /* camera_toggle@2x.png */; };
 		65B72FE219424F6C00136956 /* ASCameraViewPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B72FE019424F6C00136956 /* ASCameraViewPickerController.m */; };
 		65DA6628194645240021694C /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 65DA6627194645240021694C /* record.png */; };
 		65FDDBC11939203A00B942F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FDDBC01939203A00B942F3 /* Foundation.framework */; };
@@ -65,6 +67,8 @@
 		65788D4A1944CFCC00E72C97 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		65788D4C1944D8BF00E72C97 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		65788D4F1944DB9A00E72C97 /* focus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = focus.png; sourceTree = "<group>"; };
+		65B026CC194F79D500589B13 /* camera_toggle@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_toggle@1x.png"; sourceTree = "<group>"; };
+		65B026CD194F79D500589B13 /* camera_toggle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_toggle@2x.png"; sourceTree = "<group>"; };
 		65B72FDF19424F6C00136956 /* ASCameraViewPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASCameraViewPickerController.h; path = Classes/ASCameraViewPickerController.h; sourceTree = "<group>"; };
 		65B72FE019424F6C00136956 /* ASCameraViewPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASCameraViewPickerController.m; path = Classes/ASCameraViewPickerController.m; sourceTree = "<group>"; };
 		65B72FE119424F6C00136956 /* ASCameraViewPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ASCameraViewPickerController.xib; path = Classes/ASCameraViewPickerController.xib; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 		65788D4E1944DB9A00E72C97 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				65B026CC194F79D500589B13 /* camera_toggle@1x.png */,
+				65B026CD194F79D500589B13 /* camera_toggle@2x.png */,
 				6500BE19194E753900B3A487 /* flash@1x.png */,
 				6500BE1A194E753900B3A487 /* flash@2x.png */,
 				65DA6627194645240021694C /* record.png */,
@@ -246,6 +252,8 @@
 			files = (
 				6500BE16194E6E0600B3A487 /* Podfile in Resources */,
 				65DA6628194645240021694C /* record.png in Resources */,
+				65B026CF194F79D500589B13 /* camera_toggle@2x.png in Resources */,
+				65B026CE194F79D500589B13 /* camera_toggle@1x.png in Resources */,
 				6500BE1C194E753900B3A487 /* flash@2x.png in Resources */,
 				65788D501944DB9A00E72C97 /* focus.png in Resources */,
 				65788D4D1944D8BF00E72C97 /* README.md in Resources */,

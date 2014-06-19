@@ -54,4 +54,12 @@
 	[self.camera setFlashMode:mode];
 }
 
+- (void) changeCamera {
+	[self.camera changeCamera];
+}
+
+- (bool) enableDeviceSwitching {
+	return [self.camera enableDeviceSwitching];
+}
+
 @end

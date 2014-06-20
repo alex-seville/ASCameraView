@@ -1,10 +1,13 @@
 PODS:
   - DDExpandableButton (1.1.0)
+  - UIImage+BlurredFrame (0.0.4)
 
 DEPENDENCIES:
   - DDExpandableButton (~> 1.1.0)
+  - UIImage+BlurredFrame
 
 SPEC CHECKSUMS:
   DDExpandableButton: b18fb4d9ff77c1d71b9dde959dd5e0d90e8df439
+  UIImage+BlurredFrame: 0c38f5760d72125c47d16001a88faaac573bd35d
 
 COCOAPODS: 0.33.1

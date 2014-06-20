@@ -8,6 +8,8 @@
 
 #import "ASCameraView.h"
 #import "ASCamera.h"
+#import <UIKit/UIKit.h>
+#import <UIImage+BlurredFrame.h>
 
 @interface ASCameraView()
 
@@ -55,7 +57,26 @@
 }
 
 - (void) changeCamera {
+	/* convert the current feed to a UIImage so we can blur it */
+	UIGraphicsBeginImageContext(self.bounds.size);
+	[self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];
+	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	/* blur the captured image */
+	CGRect frame = CGRectMake(0, image.size.height, image.size.width, image.size.height);
+	image = [image applyLightEffectAtFrame:frame];
+	
+	
+	/* do an animation to switch the view */
+	[UIView  beginAnimations: @"SwitchDevice" context: nil];
+    [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.75];
+    /* switch the camera */
 	[self.camera changeCamera];
+	
+	[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self cache:NO];
+    [UIView commitAnimations];
+
 }
 
 - (bool) enableDeviceSwitching {

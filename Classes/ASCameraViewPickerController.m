@@ -87,14 +87,7 @@
 
 - (IBAction)onTapCameraToggle:(UITapGestureRecognizer *)sender {
 	NSLog(@"clicked camera");
-	[UIView  beginAnimations: @"SwitchDevice" context: nil];
-    [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationDuration:0.75];
-    [self.cameraView changeCamera];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.cameraView cache:NO];
-    [UIView commitAnimations];
-
-	
+	[self.cameraView changeCamera];
 	
 }
 

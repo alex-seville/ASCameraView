@@ -18,6 +18,7 @@
 		65788D4B1944CFCC00E72C97 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65788D4A1944CFCC00E72C97 /* AssetsLibrary.framework */; };
 		65788D4D1944D8BF00E72C97 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 65788D4C1944D8BF00E72C97 /* README.md */; };
 		65788D501944DB9A00E72C97 /* focus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65788D4F1944DB9A00E72C97 /* focus.png */; };
+		65A805FB1954C21800AA9C33 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A805FA1954C21800AA9C33 /* UIKit.framework */; };
 		65B026CE194F79D500589B13 /* camera_toggle@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B026CC194F79D500589B13 /* camera_toggle@1x.png */; };
 		65B026CF194F79D500589B13 /* camera_toggle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B026CD194F79D500589B13 /* camera_toggle@2x.png */; };
 		65B72FE219424F6C00136956 /* ASCameraViewPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B72FE019424F6C00136956 /* ASCameraViewPickerController.m */; };
@@ -54,7 +55,7 @@
 /* Begin PBXFileReference section */
 		500BEA1E97E24657A651141C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBEDC390B444D39A39B6A9A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		6500BE15194E6E0600B3A487 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		6500BE15194E6E0600B3A487 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6500BE19194E753900B3A487 /* flash@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash@1x.png"; sourceTree = "<group>"; };
 		6500BE1A194E753900B3A487 /* flash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash@2x.png"; sourceTree = "<group>"; };
 		6524D312194CE5EE00071B13 /* ASCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASCameraView.h; path = Classes/ASCameraView.h; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 		65788D4A1944CFCC00E72C97 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		65788D4C1944D8BF00E72C97 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		65788D4F1944DB9A00E72C97 /* focus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = focus.png; sourceTree = "<group>"; };
+		65A805FA1954C21800AA9C33 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		65B026CC194F79D500589B13 /* camera_toggle@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_toggle@1x.png"; sourceTree = "<group>"; };
 		65B026CD194F79D500589B13 /* camera_toggle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_toggle@2x.png"; sourceTree = "<group>"; };
 		65B72FDF19424F6C00136956 /* ASCameraViewPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASCameraViewPickerController.h; path = Classes/ASCameraViewPickerController.h; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65A805FB1954C21800AA9C33 /* UIKit.framework in Frameworks */,
 				65788D4B1944CFCC00E72C97 /* AssetsLibrary.framework in Frameworks */,
 				65FDDBC11939203A00B942F3 /* Foundation.framework in Frameworks */,
 				07E9CC9885384574A8CC3AEE /* libPods.a in Frameworks */,
@@ -168,6 +171,7 @@
 		65FDDBBF1939203A00B942F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65A805FA1954C21800AA9C33 /* UIKit.framework */,
 				65788D4A1944CFCC00E72C97 /* AssetsLibrary.framework */,
 				65FDDBC01939203A00B942F3 /* Foundation.framework */,
 				65FDDBCE1939203A00B942F3 /* XCTest.framework */,

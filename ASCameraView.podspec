@@ -34,4 +34,5 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Classes/**/*.h'
   # s.frameworks = 'SomeFramework', 'AnotherFramework'
   s.dependency 'DDExpandableButton', '~> 1.1.0'
+  s.dependency 'UIImage+BlurredFrame'
 end

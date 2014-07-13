@@ -38,6 +38,8 @@
 
 - (void) stopCamera;
 
+- (void) restartCamera;
+
 - (bool) enableDeviceSwitching;
 
 @end

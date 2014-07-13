@@ -21,10 +21,14 @@
 @property (nonatomic, strong) DDExpandableButton *flashButton;
 @property (unsafe_unretained, nonatomic) IBOutlet UIImageView *captureView;
 @property (unsafe_unretained, nonatomic) IBOutlet UIButton *cancelButton;
+@property (unsafe_unretained, nonatomic) IBOutlet UIButton *useButton;
+- (IBAction)onTapUse:(id)sender;
 
 @end
 
 @implementation ASCameraViewPickerController
+
+bool hasTaken = false;
 
 - (id)init
 {
@@ -79,16 +83,37 @@
 }
 
 - (IBAction)onCancelButtonClick:(id)sender {
-	[self dismissViewControllerAnimated:YES completion:nil];
+	if (!hasTaken){
+		[self dismissViewControllerAnimated:YES completion:nil];
+	} else {
+		[self.cameraView restartCamera];
+		[self showCaptureUI];
+	}
 }
 
 - (IBAction)onTapCapture:(UITapGestureRecognizer *)sender {
 	[self.cameraView recordWithCompletion:^(UIImage *mostRecent) {
-		[self.toggleDeviceView setHidden:YES];
-		[self.flashButton setHidden:YES];
-		[self.captureView setHidden:YES];
-		[self.cancelButton setHidden:YES];
+		[self hideCaptureUI];
 	}];
+}
+
+- (void) hideCaptureUI {
+	hasTaken = true;
+	[self.toggleDeviceView setHidden:YES];
+	[self.flashButton setHidden:YES];
+	[self.captureView setHidden:YES];
+	self.cancelButton.titleLabel.text = @"Retake";
+	[self.useButton setHidden:NO];
+}
+
+- (void) showCaptureUI {
+	hasTaken = false;
+	[self.toggleDeviceView setHidden:NO];
+	[self.flashButton setHidden:NO];
+	[self.captureView setHidden:NO];
+	[self.cancelButton setHidden:NO];
+	self.cancelButton.titleLabel.text = @"Cancel";
+	[self.useButton setHidden:YES];
 }
 
 - (IBAction)onTapCameraToggle:(UITapGestureRecognizer *)sender {
@@ -113,4 +138,9 @@
 	}
 }
 
+- (IBAction)onTapUse:(id)sender {
+	//save
+	//also weird visual effect here?
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

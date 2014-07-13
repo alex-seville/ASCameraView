@@ -101,21 +101,17 @@ bool focusOnPoint = false;
 	
 	
 	//Create the preview layer and attach it to the consumer view
-	AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:session];
-	NSLog(@"setting up preview layer");
-	//set the size to match the consumer view
-	previewLayer.frame = self.consumerView.bounds;
+	[self createPreviewLayer];
 	
-	previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-	[self.consumerView.layer addSublayer:previewLayer];
-	
-	//by default we're going to capture an image (for now)
-	self.stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
-	if ([session canAddOutput:self.stillImageOutput])
-	{
-		[self.stillImageOutput setOutputSettings:@{AVVideoCodecKey : AVVideoCodecJPEG}];
-		[session addOutput:self.stillImageOutput];
-		
+	if (self.stillImageOutput == nil){
+		//by default we're going to capture an image (for now)
+		self.stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
+		if ([session canAddOutput:self.stillImageOutput])
+		{
+			[self.stillImageOutput setOutputSettings:@{AVVideoCodecKey : AVVideoCodecJPEG}];
+			[session addOutput:self.stillImageOutput];
+			
+		}
 	}
 	NSLog(@"start capture");
 	
@@ -176,11 +172,20 @@ bool focusOnPoint = false;
 }
 
 - (void) stopCamera {
+	[session stopRunning];
+	//remove device input
 	[session removeInput:[session inputs].firstObject];
+	//remove preview layer
+	[[self.consumerView.layer sublayers].lastObject removeFromSuperlayer];
+}
+
+- (void) restartCamera {
+	[self showCameraWithPreviewView:self.consumerView];
 }
 
 - (void) changeCamera {
 	if ([AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo].count > 1){
+		[self stopCamera];
 		if (!self.frontCamera){
 			self.frontCamera = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo][1];
 		}
@@ -195,7 +200,10 @@ bool focusOnPoint = false;
 		if ([session inputs].count > 0){
 			[self stopCamera];
 		}
+		//may need to add focus observer here
 		[session addInput:VideoInputDevice];
+		[self createPreviewLayer];
+		[session startRunning];
 	}
 }
 
@@ -204,6 +212,16 @@ bool focusOnPoint = false;
 }
 
 #pragma mark - private methods
+
+- (void) createPreviewLayer {
+	AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:session];
+	NSLog(@"setting up preview layer");
+	//set the size to match the consumer view
+	previewLayer.frame = self.consumerView.bounds;
+	
+	previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+	[self.consumerView.layer addSublayer:previewLayer];
+}
 
 - (void) setupVideoCapture {
 	_device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];

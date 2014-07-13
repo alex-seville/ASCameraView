@@ -51,6 +51,11 @@
 	return self;
 }
 
+- (void) restartCamera {
+	self.image = nil;
+	[self.camera restartCamera];
+}
+
 - (void) recordWithCompletion:(void (^)(UIImage *mostRecent))onCompletion {
 	[self.camera captureImageWithCompletion:^(UIImage *image) {
 		//stop the camera
@@ -116,6 +121,7 @@
 	[UIView transitionWithView:self duration:0.75f options:UIViewAnimationOptionTransitionFlipFromRight animations:nil completion:^(BOOL finished)
 	{
 		[self.camera changeCamera];
+		
 	}];
 
 	

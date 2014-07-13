@@ -55,7 +55,7 @@ https://github.com/alex-seville/ASCameraView/issues?milestone=1&state=open
  
 - capture
 
- - [ ] take single photo
+ - [x] take single photo
  
  - [ ] use/retake buttons
 

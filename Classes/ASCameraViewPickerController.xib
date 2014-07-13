@@ -10,6 +10,7 @@
                 <outlet property="cancelButton" destination="yHa-Ep-Prj" id="2hg-cg-aCJ"/>
                 <outlet property="captureView" destination="nHq-ox-dN3" id="Nzq-BR-xNa"/>
                 <outlet property="toggleDeviceView" destination="Oru-4M-1ph" id="C65-hR-6kM"/>
+                <outlet property="useButton" destination="o3L-l0-BzX" id="Jwl-ja-Xj6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="U1H-q4-24l"/>
             </connections>
         </placeholder>
@@ -52,6 +53,19 @@
                         <outletCollection property="gestureRecognizers" destination="d1K-Xx-XoO" appends="YES" id="wsb-vp-zhh"/>
                     </connections>
                 </imageView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3L-l0-BzX">
+                    <rect key="frame" x="217" y="517" width="83" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Use Photo">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onCancelButtonClick:" destination="-1" eventType="touchUpInside" id="Gmg-lC-6kW"/>
+                        <action selector="onTapUse:" destination="-1" eventType="touchUpInside" id="Glo-MO-LYw"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

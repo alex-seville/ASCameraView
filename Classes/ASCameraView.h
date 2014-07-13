@@ -24,4 +24,6 @@ typedef enum ASCameraViewFlashMode {
 
 - (bool) enableDeviceSwitching;
 
+- (void) restartCamera;
+
 @end

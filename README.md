@@ -57,7 +57,9 @@ https://github.com/alex-seville/ASCameraView/issues?milestone=1&state=open
 
  - [x] take single photo
  
- - [ ] use/retake buttons
+ - [x] use/retake buttons
+ 
+ - [ ] returning saved image via delegate
 
  - [ ] choose crop after taking
 

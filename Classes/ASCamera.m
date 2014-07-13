@@ -127,6 +127,16 @@ bool focusOnPoint = false;
 //take a picture or record a video
 - (void) recordWithCompletion:(void (^)(UIImage *mostRecent))onCompletion{
 	NSLog(@"record");
+	[self captureImageWithCompletion:^(UIImage *image) {
+		NSLog(@"got a ui image to save");
+		[[[assetLib alloc] init] saveImage:image onCompletion:^{
+			onCompletion(image);
+		}];
+		
+	}];
+}
+
+- (void) captureImageWithCompletion:(void (^)(UIImage *image))onCompletion{
 	[self.stillImageOutput captureStillImageAsynchronouslyFromConnection:[self. stillImageOutput connectionWithMediaType:AVMediaTypeVideo] completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
 		
 		NSLog(@"error? %@", error);
@@ -135,10 +145,8 @@ bool focusOnPoint = false;
 		{
 			NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
 			UIImage *image = [[UIImage alloc] initWithData:imageData];
-			NSLog(@"got a ui image to save");
-			[[[assetLib alloc] init] saveImage:image onCompletion:^{
-				onCompletion(image);
-			}];
+			NSLog(@"made a ui image");
+			onCompletion(image);
 		}
 	}];
 }
@@ -167,6 +175,10 @@ bool focusOnPoint = false;
 	}
 }
 
+- (void) stopCamera {
+	[session removeInput:[session inputs].firstObject];
+}
+
 - (void) changeCamera {
 	if ([AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo].count > 1){
 		if (!self.frontCamera){
@@ -180,7 +192,9 @@ bool focusOnPoint = false;
 		}
 		
 		AVCaptureDeviceInput *VideoInputDevice = [AVCaptureDeviceInput deviceInputWithDevice:_device error:nil];
-		[session removeInput:[session inputs].firstObject];
+		if ([session inputs].count > 0){
+			[self stopCamera];
+		}
 		[session addInput:VideoInputDevice];
 	}
 }

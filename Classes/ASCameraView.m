@@ -9,11 +9,14 @@
 #import "ASCameraView.h"
 #import "ASCamera.h"
 #import <UIKit/UIKit.h>
-#import <UIImage+BlurredFrame.h>
+#import "UIImage+ImageEffects.h"
 
 @interface ASCameraView()
 
 @property (nonatomic, strong) ASCamera *camera;
+
+@property (nonatomic, strong) UIImageView *imageView2;
+@property (nonatomic, strong) UIImageView *imageView;
 
 @end
 
@@ -57,25 +60,61 @@
 }
 
 - (void) changeCamera {
-	/* convert the current feed to a UIImage so we can blur it */
+	
+	/* can't get the blur effect on transition to work properly right now */
+	
+	/*
 	UIGraphicsBeginImageContext(self.bounds.size);
-	[self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];
+	
+	//[self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];
+	CGContextRef c = UIGraphicsGetCurrentContext();
+	CGContextSaveGState(c);
+	CGContextTranslateCTM(c, 0, 0);
+	[self.layer renderInContext:c];
+	CGContextRestoreGState(c);
+	
+	
+	
 	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
-	/* blur the captured image */
-	CGRect frame = CGRectMake(0, image.size.height, image.size.width, image.size.height);
-	image = [image applyLightEffectAtFrame:frame];
 	
 	
-	/* do an animation to switch the view */
-	[UIView  beginAnimations: @"SwitchDevice" context: nil];
-    [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationDuration:0.75];
-    /* switch the camera */
-	[self.camera changeCamera];
+	self.imageView = [[UIImageView alloc] init];
+	self.imageView.image = image;
 	
-	[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self cache:NO];
-    [UIView commitAnimations];
+	self.imageView2 = [[UIImageView alloc] init];
+	//imageView2.image = [image applyBlurWithRadius:50 tintColor:[UIColor colorWithWhite:1.0 alpha:0.5] saturationDeltaFactor:1 maskImage:nil];
+	self.imageView2.image = image;
+	
+	
+	[self addSubview:self.imageView];
+	[self bringSubviewToFront:self.imageView];
+	
+	//[self addSubview:imageView2];
+	[self.imageView2.image applyLightEffect];
+	*/
+	
+	//stop the preview during camera change
+	[self.camera stopCamera];
+	
+	/*
+	[UIView transitionFromView:self toView:self.imageView2
+					  duration:1.0
+					   options:UIViewAnimationOptionTransitionFlipFromRight
+					completion:^(BOOL finished) {
+						//[self.camera changeCamera];
+						//[self.imageView2 removeFromSuperview];
+						
+					}];
+	*/
+	[UIView transitionWithView:self duration:0.75f options:UIViewAnimationOptionTransitionFlipFromRight animations:nil completion:^(BOOL finished)
+	{
+		[self.camera changeCamera];
+	}];
+
+	
+	
+	
 
 }
 

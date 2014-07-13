@@ -22,6 +22,9 @@
 		65B026CE194F79D500589B13 /* camera_toggle@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B026CC194F79D500589B13 /* camera_toggle@1x.png */; };
 		65B026CF194F79D500589B13 /* camera_toggle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B026CD194F79D500589B13 /* camera_toggle@2x.png */; };
 		65B72FE219424F6C00136956 /* ASCameraViewPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B72FE019424F6C00136956 /* ASCameraViewPickerController.m */; };
+		65BB82901970F50A0040B622 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BB828F1970F50A0040B622 /* Accelerate.framework */; };
+		65BB82921970F5180040B622 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BB82911970F5180040B622 /* CoreGraphics.framework */; };
+		65BB82951970F8240040B622 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BB82941970F8240040B622 /* UIImage+ImageEffects.m */; };
 		65DA6628194645240021694C /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 65DA6627194645240021694C /* record.png */; };
 		65FDDBC11939203A00B942F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FDDBC01939203A00B942F3 /* Foundation.framework */; };
 		65FDDBCF1939203A00B942F3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FDDBCE1939203A00B942F3 /* XCTest.framework */; };
@@ -74,6 +77,10 @@
 		65B72FDF19424F6C00136956 /* ASCameraViewPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASCameraViewPickerController.h; path = Classes/ASCameraViewPickerController.h; sourceTree = "<group>"; };
 		65B72FE019424F6C00136956 /* ASCameraViewPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASCameraViewPickerController.m; path = Classes/ASCameraViewPickerController.m; sourceTree = "<group>"; };
 		65B72FE119424F6C00136956 /* ASCameraViewPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ASCameraViewPickerController.xib; path = Classes/ASCameraViewPickerController.xib; sourceTree = "<group>"; };
+		65BB828F1970F50A0040B622 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		65BB82911970F5180040B622 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		65BB82931970F8240040B622 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "Classes/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		65BB82941970F8240040B622 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "Classes/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		65DA6627194645240021694C /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
 		65FDDBBD1939203A00B942F3 /* libASCameraView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libASCameraView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		65FDDBC01939203A00B942F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,6 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BB82921970F5180040B622 /* CoreGraphics.framework in Frameworks */,
+				65BB82901970F50A0040B622 /* Accelerate.framework in Frameworks */,
 				65A805FB1954C21800AA9C33 /* UIKit.framework in Frameworks */,
 				65788D4B1944CFCC00E72C97 /* AssetsLibrary.framework in Frameworks */,
 				65FDDBC11939203A00B942F3 /* Foundation.framework in Frameworks */,
@@ -120,6 +129,8 @@
 				65788D481944CF4B00E72C97 /* assetLib.m */,
 				6524D312194CE5EE00071B13 /* ASCameraView.h */,
 				6524D313194CE5EE00071B13 /* ASCameraView.m */,
+				65BB82931970F8240040B622 /* UIImage+ImageEffects.h */,
+				65BB82941970F8240040B622 /* UIImage+ImageEffects.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -171,6 +182,8 @@
 		65FDDBBF1939203A00B942F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65BB82911970F5180040B622 /* CoreGraphics.framework */,
+				65BB828F1970F50A0040B622 /* Accelerate.framework */,
 				65A805FA1954C21800AA9C33 /* UIKit.framework */,
 				65788D4A1944CFCC00E72C97 /* AssetsLibrary.framework */,
 				65FDDBC01939203A00B942F3 /* Foundation.framework */,
@@ -314,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65788D491944CF4B00E72C97 /* assetLib.m in Sources */,
+				65BB82951970F8240040B622 /* UIImage+ImageEffects.m in Sources */,
 				6524D314194CE5EE00071B13 /* ASCameraView.m in Sources */,
 				655D25C6193A6A310018BC1D /* ASCamera.m in Sources */,
 				65B72FE219424F6C00136956 /* ASCameraViewPickerController.m in Sources */,

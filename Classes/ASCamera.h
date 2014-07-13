@@ -22,6 +22,8 @@
 
 - (void) showCameraWithPreviewView:(UIView *) previewView showFocusOverlay:(BOOL)showFocusOverlay focusOverlayImage:(UIImage *)focusOverlayImage;
 
+- (void) captureImageWithCompletion:(void (^)(UIImage *image))onCompletion;
+
 // default version
 - (void) showCameraWithPreviewView:(UIView *) previewView;
 
@@ -33,6 +35,8 @@
 - (void) setFlashMode:(int)mode;
 
 - (void) changeCamera;
+
+- (void) stopCamera;
 
 - (bool) enableDeviceSwitching;
 

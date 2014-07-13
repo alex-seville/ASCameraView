@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -7,6 +7,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASCameraViewPickerController">
             <connections>
                 <outlet property="cameraView" destination="BFO-GB-Ntb" id="ctz-n1-vnJ"/>
+                <outlet property="cancelButton" destination="yHa-Ep-Prj" id="2hg-cg-aCJ"/>
+                <outlet property="captureView" destination="nHq-ox-dN3" id="Nzq-BR-xNa"/>
                 <outlet property="toggleDeviceView" destination="Oru-4M-1ph" id="C65-hR-6kM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="U1H-q4-24l"/>
             </connections>

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ASCameraView : UIView
+@interface ASCameraView : UIImageView
 
 typedef enum ASCameraViewFlashMode {
 	AUTO = 0,

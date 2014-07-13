@@ -52,7 +52,13 @@
 }
 
 - (void) recordWithCompletion:(void (^)(UIImage *mostRecent))onCompletion {
-	[self.camera recordWithCompletion:onCompletion];
+	[self.camera captureImageWithCompletion:^(UIImage *image) {
+		//stop the camera
+		[self.camera stopCamera];
+		//display the capture
+		self.image = image;
+		onCompletion(image);
+	}];
 }
 
 - (void) setFlashMode:(int)mode {

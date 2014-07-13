@@ -18,6 +18,9 @@
 - (IBAction)onTapCameraToggle:(UITapGestureRecognizer *)sender;
 @property (unsafe_unretained, nonatomic) IBOutlet ASCameraView *cameraView;
 @property (unsafe_unretained, nonatomic) IBOutlet UIImageView *toggleDeviceView;
+@property (nonatomic, strong) DDExpandableButton *flashButton;
+@property (unsafe_unretained, nonatomic) IBOutlet UIImageView *captureView;
+@property (unsafe_unretained, nonatomic) IBOutlet UIButton *cancelButton;
 
 @end
 
@@ -49,14 +52,14 @@
     // Do any additional setup after loading the view from its nib.
 	
 	NSArray *buttons = [NSArray arrayWithObjects:@"Auto", @"On", @"Off", nil];
-	DDExpandableButton *flashButton = [[DDExpandableButton alloc] initWithPoint:CGPointMake(0, 0) leftTitle:[UIImage imageNamed:@"flash.png"] buttons:buttons];
-	flashButton.borderColor = [UIColor blackColor];
-	flashButton.textColor = [UIColor whiteColor];
-	flashButton.backgroundColor = [UIColor blackColor];
-	flashButton.selectedItem = 0;
+	self.flashButton = [[DDExpandableButton alloc] initWithPoint:CGPointMake(0, 0) leftTitle:[UIImage imageNamed:@"flash.png"] buttons:buttons];
+	self.flashButton.borderColor = [UIColor blackColor];
+	self.flashButton.textColor = [UIColor whiteColor];
+	self.flashButton.backgroundColor = [UIColor blackColor];
+	self.flashButton.selectedItem = 0;
 	
-	[self.view addSubview:flashButton];
-	[flashButton addTarget:self action:@selector(toggleFlash:) forControlEvents:UIControlEventValueChanged];
+	[self.view addSubview:self.flashButton];
+	[self.flashButton addTarget:self action:@selector(toggleFlash:) forControlEvents:UIControlEventValueChanged];
 	if (![self.cameraView enableDeviceSwitching]){
 		self.toggleDeviceView.alpha = 0.7;
 		self.toggleDeviceView.userInteractionEnabled = false;
@@ -81,7 +84,10 @@
 
 - (IBAction)onTapCapture:(UITapGestureRecognizer *)sender {
 	[self.cameraView recordWithCompletion:^(UIImage *mostRecent) {
-		NSLog(@"done!");
+		[self.toggleDeviceView setHidden:YES];
+		[self.flashButton setHidden:YES];
+		[self.captureView setHidden:YES];
+		[self.cancelButton setHidden:YES];
 	}];
 }
 

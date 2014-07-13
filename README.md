@@ -38,13 +38,20 @@ I've split the feature set into 5 milestones
 
 ###Milestone #1: Feature/API parity with UIImagePickerController
 
+https://github.com/alex-seville/ASCameraView/issues?milestone=1&state=open
+
+
 - flash
 
  - [x] allow toggling of modes
  
+ - [ ] yellow coloring on `auto` and `on` mode labels
+ 
 - Device switching
 
- - [ ] toggling between front and back camera
+ - [x] toggling between front and back camera
+ 
+ - [ ] blur effect during transition
  
 - capture
 
@@ -54,17 +61,13 @@ I've split the feature set into 5 milestones
 
  - [ ] choose crop after taking
 
- - [ ] cancel button
+ - [x] cancel button
 
 - focus rectangle
 
- - [ ] show focus rectangle on autofocus changes (iOS 6 or less style)
- 
  - [ ] show focus rectangle on autofocus changes (iOS 7+ style)
  
  - [ ] tap to focus
- 
- - [ ] holding down capture button does a center focus
  
  - [x] show smaller focus rectangle when tapped focus change is made
  

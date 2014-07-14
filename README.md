@@ -59,11 +59,15 @@ https://github.com/alex-seville/ASCameraView/issues?milestone=1&state=open
  
  - [x] use/retake buttons
  
- - [ ] returning saved image via delegate
+ - [x] returning saved image via delegate
 
  - [ ] choose crop after taking
 
  - [x] cancel button
+ 
+ - [ ] enable showCameraControls property, so that you can...
+ 
+ - [ ] capture multiple photos
 
 - focus rectangle
 

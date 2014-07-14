@@ -11,6 +11,14 @@
 #import <UIKit/UIKit.h>
 #import <DDExpandableButton.h>
 
+NSString *const ASCameraViewPickerControllerMediaType = @"ASCameraViewPickerControllerMediaType";
+NSString *const ASCameraViewPickerControllerOriginalImage = @"ASCameraViewPickerControllerOriginalImage";
+NSString *const ASCameraViewPickerControllerEditedImage = @"ASCameraViewPickerControllerEditedImage";
+NSString *const ASCameraViewPickerControllerCropRect = @"ASCameraViewPickerControllerCropRect";
+NSString *const ASCameraViewPickerControllerMediaURL = @"ASCameraViewPickerControllerMediaURL";
+NSString *const ASCameraViewPickerControllerReferenceURL = @"ASCameraViewPickerControllerReferenceURL";
+NSString *const ASCameraViewPickerControllerMediaMetadata = @"ASCameraViewPickerControllerMediaMetadata";
+
 @interface ASCameraViewPickerController ()
 
 - (IBAction)onCancelButtonClick:(id)sender;
@@ -23,6 +31,7 @@
 @property (unsafe_unretained, nonatomic) IBOutlet UIButton *cancelButton;
 @property (unsafe_unretained, nonatomic) IBOutlet UIButton *useButton;
 - (IBAction)onTapUse:(id)sender;
+@property (strong, nonatomic) UIImage *capturedImage;
 
 @end
 
@@ -85,6 +94,9 @@ bool hasTaken = false;
 - (IBAction)onCancelButtonClick:(id)sender {
 	if (!hasTaken){
 		[self dismissViewControllerAnimated:YES completion:nil];
+		if (self.delegate && [self.delegate respondsToSelector:@selector(imagePickerControllerDidCancel:)]) {
+			[self.delegate imagePickerControllerDidCancel:self];
+		}
 	} else {
 		[self.cameraView restartCamera];
 		[self showCaptureUI];
@@ -94,6 +106,7 @@ bool hasTaken = false;
 - (IBAction)onTapCapture:(UITapGestureRecognizer *)sender {
 	[self.cameraView recordWithCompletion:^(UIImage *mostRecent) {
 		[self hideCaptureUI];
+		self.capturedImage = mostRecent;
 	}];
 }
 
@@ -142,5 +155,10 @@ bool hasTaken = false;
 	//save
 	//also weird visual effect here?
 	[self dismissViewControllerAnimated:YES completion:nil];
+	if (self.delegate && [self.delegate respondsToSelector:@selector(imagePickerController:didFinishPickingMediaWithInfo:)]) {
+		[self.delegate imagePickerController:self didFinishPickingMediaWithInfo:@{
+		ASCameraViewPickerControllerOriginalImage:  self.capturedImage
+		}];
+	}
 }
 @end

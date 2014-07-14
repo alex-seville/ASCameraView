@@ -19,7 +19,7 @@ ASCamera - the underlying AVFoundation logic
 
 ASCameraView - a camera view using ASCamera
 
-ASCameraViewPickerController - a drop-in replacement for UIImagePickerController
+ASCameraViewPickerController - a drop-in replacement for [UIImagePickerController](https://developer.apple.com/library/ios/documentation/uikit/reference/UIImagePickerController_Class/UIImagePickerController/UIImagePickerController.html)
 
 ##Features
 

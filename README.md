@@ -1,6 +1,8 @@
 ASCameraView
 =========
 
+#Deprecated: The code is left for educational/cautionary purposes...
+
 ##Try it out
 
 1. Clone this repo
